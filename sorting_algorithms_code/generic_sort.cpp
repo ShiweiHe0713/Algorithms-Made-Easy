@@ -5,19 +5,6 @@
 
 using namespace std;
 
-void printArray(vector<int> vec) {
-	for(int i = 0; i < vec.size(); i++) {
-		printf("%d ", vec[i]);
-	}
-	printf("\n");
-}
-
-void swap(vector<int>& vec, int i, int j) {
-	int tmp = vec[j];
-	vec[j] = vec[i];
-	vec[i] = tmp;
-}
-
 void genericSort(vector<int>& vec) {
 	// Time complexity: O(n^2)
 	for(int i = 0; i < vec.size(); i++) {
