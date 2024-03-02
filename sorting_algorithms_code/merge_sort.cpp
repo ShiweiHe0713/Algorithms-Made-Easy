@@ -53,6 +53,7 @@ void printArr(int arr[], int size) {
 int main() {
     int arr[] = {4,2,3,6,1,8,7};
     int left = 0, right = sizeof(arr)/sizeof(arr[0]) - 1;
-    mergeSort(arr, left, right);
+    // mergeSort(arr, left, right);
+    
     printArr(arr, right + 1);
 }
