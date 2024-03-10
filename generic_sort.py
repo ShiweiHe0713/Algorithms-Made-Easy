@@ -24,6 +24,7 @@ def generic_sort(arr):
     print("Generic sort: Time complexity is O(n^2)")
 
 def insertion_sort(arr):
+    # Todo2
     pass
 
 def merge_sort(arr):
@@ -39,7 +40,7 @@ def partition(arr, low, high, fashion):
     if fashion == "deterministic":
         pivot = arr[high]
     elif fashion == "randomized":
-        # Todo: QS_ran not working correctly
+        # Todo1: QS_ran not working correctly
         ran = random.randint(low, high)
         pivot = arr[ran]
     elif fashion == "median":
@@ -72,10 +73,8 @@ def quick_sort_randomized(arr, low, high):
         quick_sort_randomized(arr, low, pivot - 1)
         quick_sort_randomized(arr, pivot + 1, high - 1)
 
-
-
 def quick_sort_general(arr):
-
+    # Todo3
     pass
 
 def main():
