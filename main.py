@@ -6,7 +6,8 @@ def main():
     print("Unsorted Array")
     print(arr)
 
-    quick_sort_randomized(arr, 0, len(arr)-1)
+    # quick_sort_ran(arr, 0, len(arr)-1)
+    quick_sort_determ(arr, 0, len(arr)-1)
 
     print('Sorted Array in Ascending Order:')
     print(arr)
