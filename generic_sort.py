@@ -23,10 +23,6 @@ def generic_sort(arr):
     print(f"Number of comparisons: %d" %arithmetic_sequence_sum(len(arr)))
     print("Generic sort: Time complexity is O(n^2)")
 
-def insertion_sort(arr):
-    # Todo2
-    pass
-
 def merge_sort(arr):
     pass
 
@@ -38,40 +34,45 @@ def partition(arr, low, high, fashion):
     3. Put all greater elements (greater than x) after x
     '''
     if fashion == "deterministic":
-        pivot = arr[high]
+        pivot = high
     elif fashion == "randomized":
         # Todo1: QS_ran not working correctly
-        ran = random.randint(low, high)
-        pivot = arr[ran]
+        pivot = random.randint(low, high)
     elif fashion == "median":
-        mid = low + (high - low)/2
-        pivot = arr[mid]
+        # Use median of median to find the median of an array
+        pass
 
-    i = j = low
+    # Move the pivot to the first element
+    arr[low], arr[pivot] = arr[pivot], arr[low]
+    pivot = low
+    i = low
+    j = low + 1 # Don't have to compare arr[low] with arr[pivot]
 
-    while(j<high):
-        if(arr[j] <= pivot):
+    while j < high:
+        if arr[j] <= arr[pivot] :
             (arr[j], arr[i]) = (arr[i], arr[j])
             i += 1
         j += 1
-    (arr[i], arr[high]) = (arr[high], arr[i]) # i's successor must be greater than pivot
+
+    arr[i], arr[low] = arr[low], arr[i]
     return i
 
 def quick_sort_deterministic(arr, low, high):
+    '''quick_sort_deterministic'''
     if(low < high):
         pivot = partition(arr, low, high, "deterministic")
         quick_sort_deterministic(arr, low, pivot - 1)
-        quick_sort_deterministic(arr, pivot + 1, high - 1)
+        quick_sort_deterministic(arr, pivot + 1, high)
     
 
 def quick_sort_randomized(arr, low, high):
     '''
-    Quick sort utilizes the idea of Divide and Conquer: Pivoting and Patitioning
+    Quick sort utilizes the idea of Divide and Conquer: Pivoting and Partitioning
     '''
     if(low < high):
         pivot = partition(arr, low, high, "randomized")
         quick_sort_randomized(arr, low, pivot - 1)
-        quick_sort_randomized(arr, pivot + 1, high - 1)
+        quick_sort_randomized(arr, pivot + 1, high)
 
 def quick_sort_general(arr):
     # Todo3
