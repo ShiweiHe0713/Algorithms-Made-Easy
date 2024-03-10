@@ -12,5 +12,3 @@ def generic_sort(arr):
     print(f"Number of comparisons: %d" %arithmetic_sequence_sum(len(arr)))
     print("Generic sort: Time complexity is O(n^2)")
 
-def merge_sort(arr):
-    pass
