@@ -1,5 +1,5 @@
 from merge_sort import merge_sort
-from quick_sort import *
+from quick_sort import quick_sort_determ, quick_sort_ran
 from generic_sort import *
 
 def main():
