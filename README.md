@@ -2,8 +2,20 @@
 This is a website visualizer for different sorting algorithms: (Insertion Sort)IS, (Merge Sort)MS, (Quick Sort)QS, (Heap Sort)HS, etc.
 
 *Sorting*
+| Sorting        |   Time   |
+| ------------   | -------- |
+| Generic sort   |  O(n^2)  |
+| Insertion sort |  O(n^2)  |
+| Merge sort     | O(nlogn) |
+| Quick sort ran | O() |
+| Quick sort det | O() |
+| Heap sort      | O() |
+| Radix sort     | O() |
+| Couting sort   | O() |
+
+
 - `O(n^2)`: generic sort, insertion sort, quick sort deter
-- `O(nlogn)`: Heap sort,  quick sort randomized
+- `O(nlogn)`: Merge sort, Heap sort,  quick sort randomized
 - `O(n)`: Radix sort, counting sort
 
 # Quicksort
