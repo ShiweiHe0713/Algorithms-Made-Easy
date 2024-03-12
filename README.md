@@ -71,6 +71,12 @@ Enjoy your journey learning these fun algorithms! 🥳
 [Some questions to be cleared before heap sort 👈🏼](#pq-tree-and-heap-relationship)
 **Heap sort** is a comparison-based sorting algorithm that uses a binary heap. It works by **building a heap from the input data**, then repeatedly **removing/extracting** the largest/smallest element from the heap and restoring the heap property, until the heap is empty. This process sorts the data in ascending order when a max-heap is used (or descending order if a min-heap is used).
 
+**Heapify**
+Heapify is used when removing or inserting an element into a heap, ensuring that the heap **remains a complete binary tree** and maintains its **order properties**.
+
+**Insertion:**
+**Deletion:**
+
 
 ### Counting Sort 🔢
 [CS Dojo's YT video on counting sort](https://www.youtube.com/watch?v=OKd534EWcdk)
@@ -120,4 +126,4 @@ A priority queue is an abstract concept that specifies behavior (an ADT) rather 
 2. [Sort visualizer](https://sortvisualizer.com/)
 3. [A greate article on QSR](https://www.baeldung.com/cs/randomized-quicksort)
 
-[Go back to top](#fundamental-algorithms)
+<div style="text-align: center"><a href="#fundamental-algorithms" style="text-align: center;">👆🏻 Go back to top 👆🏻</a></div>
