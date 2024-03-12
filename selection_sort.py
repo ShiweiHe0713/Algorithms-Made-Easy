@@ -1,5 +1,5 @@
 def selection_sort(arr):
-    '''T(n) = O(n^2)'''
+    '''T(n) = Θ(n^2)'''
     n = len(arr)
     for i in range(n):
         min_ele_index = i

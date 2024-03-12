@@ -8,9 +8,10 @@ This is a website visualizer for different sorting algorithms: (Insertion Sort)I
 | Insertion sort |  O(n^2)  |
 | Selection sort |  O(n^2)  |
 | Merge sort     | Θ(nlogn) |
-| Quick sort ran | O() |
-| Quick sort det | O() |
-| Heap sort      | O() |
+| Quick sort ran | Θ(nlogn) |
+| Quick sort det<br> 1st/last element |  Θ(n^2)  |
+| Quick sort det<br> pick median |  Θ(n^2)  |
+| Heap sort      | O(nlogn) |
 | Radix sort     | O() |
 | Couting sort   | O() |
 
