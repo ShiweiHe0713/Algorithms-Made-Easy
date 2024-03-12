@@ -1,7 +1,11 @@
 # Sorting algorithms visualizer
-This is a website visualizer for different sorting algorithms: (Insertion Sort)IS, (Merge Sort)MS, (Quick Sort)QS, (Heap Sort)HS, etc.
+## About
+This is a repo that helps you to learn the foundemental algorithms as well as their run time analysis. The algorithms covered such as divide and conquer(binary search, fibonacchi, etc), sorting algorithms(quick sort, heap sort, radix sort, etc), BST, dynammic programming, etc. Also to notice the material is partially based on CSCI-GA_1170_1 Fundamental Algorithms from [NYU Courant](https://cims.nyu.edu/dynamic/). Enjoy your journey learning these fun algorithms! 🥳
 
-*Sorting*
+## Divide and Conquer
+   pass
+
+## Sorting
 | Sorting        |   Time   |
 | ------------   | -------- |
 | Generic sort   |  O(n^2)  |
