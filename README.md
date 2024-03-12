@@ -10,7 +10,7 @@ This is a website visualizer for different sorting algorithms: (Insertion Sort)I
 | Merge sort     | Θ(nlogn) |
 | Quick sort ran | Θ(nlogn) |
 | Quick sort det: 1st/last element |  Θ(n^2)  |
-| Quick sort det<br> pick median |  Θ(n^2)  |
+| Quick sort det: pick median |  Θ(nlogn)  |
 | Heap sort      | O(nlogn) |
 | Radix sort     | O() |
 | Couting sort   | O() |
