@@ -6,6 +6,7 @@ This is a website visualizer for different sorting algorithms: (Insertion Sort)I
 | ------------   | -------- |
 | Generic sort   |  O(n^2)  |
 | Insertion sort |  O(n^2)  |
+| Selection sort |  O(n^2)  |
 | Merge sort     | Θ(nlogn) |
 | Quick sort ran | O() |
 | Quick sort det | O() |
