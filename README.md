@@ -1,6 +1,9 @@
-# Sorting algorithms visualizer
-## About
-This is a repo that helps you to learn the foundemental algorithms as well as their run time analysis. The algorithms covered such as divide and conquer(binary search, fibonacchi, etc), sorting algorithms(quick sort, heap sort, radix sort, etc), BST, dynammic programming, etc. Also to notice the material is partially based on CSCI-GA_1170_1 Fundamental Algorithms from [NYU Courant](https://cims.nyu.edu/dynamic/). Enjoy your journey learning these fun algorithms! 🥳
+# Fundamental algorithms
+This is a repo that helps you to learn the **foundemental algorithms** as well as their **run time** analysis. The algorithms covered such as **divide and conquer**(binary search, fibonacchi, etc), **sorting** algorithms(quick sort, heap sort, radix sort, etc), **BST**, **dynammic programming**, etc. 
+
+Also to notice the material is partially based on *CSCI-GA-1170 Fundamental Algorithms* from [NYU Courant](https://cims.nyu.edu/dynamic/). 
+
+Enjoy your journey learning these fun algorithms! 🥳
 
 ## Divide and Conquer
    pass
