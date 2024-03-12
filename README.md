@@ -1,5 +1,5 @@
 # Fundamental Algorithms
-This is a repo that helps you to learn the **foundemental algorithms** as well as their **run time** analysis. The algorithms covered such as **divide and conquer**(binary search, fibonacchi, etc), **sorting** algorithms(quick sort, heap sort, radix sort, etc), **BST**, **dynammic programming**, etc. 
+This is a repo that helps you to learn the **foundemental algorithms** as well as their **run time** analysis. The algorithms covered such as **divide and conquer**(binary search, fibonacci, etc), **sorting** algorithms(quick sort, heap sort, radix sort, etc), **BST**, **dynammic programming**, etc. 
 
 Also to notice the material is partially based on *CSCI-GA-1170 Fundamental Algorithms* from 🎓 [NYU Courant](https://cims.nyu.edu/dynamic/). 
 
@@ -18,7 +18,7 @@ Enjoy your journey learning these fun algorithms! 🥳
     - [BST](#bst)
     - [2-3 Tree](#2-3-tree)
 - [Appendix 🖇](#appendix-)
-        - [PQ, Tree and heap relationship](#pq-tree-and-heap-relationship)
+      - [PQ, Tree and heap relationship](#pq-tree-and-heap-relationship)
 - [Reference 🗞](#reference-)
 
 ## Divide and Conquer
@@ -111,12 +111,12 @@ So `d` will be how many rounds of sorting we need to perform. In every round, we
 ### 2-3 Tree
 
 # Appendix 🖇
-##### PQ, Tree and heap relationship
+#### PQ, Tree and heap relationship
 We need to distinguish between `priority queue`, `heap`, `binary tree` and `array` before discussing the implementation of heap sort, because these concepts always intertwined and confused me while learning this sorting algorithm.
-- **Priority queue:** A priority queue is an **abstract data type**(not a data structure) that operates similarly to a regular queue or stack but with a **"priority"** feature. A priority queue can be implemented using **various** data structures, including heaps (most commonly), binary trees, or even arrays.
-- **Heap:** Heap is a **specialized** tree-based data structure where each node conform to the same rules(like max heap or min heap.) A Binray heap can also be implemented as an array for efficiency.
-- **Binary tree:** A tree data structure in which each node has at most two children. It's a **fundamental** structure that can be specialized into more **specific types**, such as BST, AVL trees, and heaps.
-- **Array**: Arrays can be used to implement binary heaps efficiently due to the **predictable structure of a complete binary tree**, where the relationships between parent and child nodes can be calculated using the indices.
+- `Priority queue`: A priority queue is an **abstract data type**(not a data structure) that operates similarly to a regular queue or stack but with a **"priority"** feature. A priority queue can be implemented using **various** data structures, including heaps (most commonly), binary trees, or even arrays.
+- `Heap`: Heap is a **specialized** tree-based data structure where each node conform to the same rules(like max heap or min heap.) A Binray heap can also be implemented as an array for efficiency.
+- `Binary tree`: A tree data structure in which each node has at most two children. It's a **fundamental** structure that can be specialized into more **specific types**, such as BST, AVL trees, and heaps.
+- `Array`: Arrays can be used to implement binary heaps efficiently due to the **predictable structure of a complete binary tree**, where the relationships between parent and child nodes can be calculated using the indices.
 
 **In conclusion**, a binary heap is a more specific type of binary tree, tailored for efficiently managing hierarchical data according to certain rules (heap property).
 A priority queue is an abstract concept that specifies behavior (an ADT) rather than a concrete data structure. A binary heap is a specific data structure that efficiently implements the priority queue ADT.
@@ -126,4 +126,4 @@ A priority queue is an abstract concept that specifies behavior (an ADT) rather 
 2. [Sort visualizer](https://sortvisualizer.com/)
 3. [A greate article on QSR](https://www.baeldung.com/cs/randomized-quicksort)
 
-<div style="text-align: center"><a href="#fundamental-algorithms" style="text-align: center;">👆🏻 Go back to top 👆🏻</a></div>
+[👆🏻 Go back to top 👆🏻](#fundamental-algorithms)
