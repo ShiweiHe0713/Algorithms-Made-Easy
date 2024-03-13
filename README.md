@@ -17,8 +17,10 @@ Enjoy your journey learning these fun algorithms! 🥳
   - [Trees 🌲](#trees-)
     - [BST](#bst)
     - [2-3 Tree](#2-3-tree)
+  - [Dynamic Programming](#dynamic-programming)
 - [Appendix 🖇](#appendix-)
-      - [PQ, Tree and heap relationship](#pq-tree-and-heap-relationship)
+    - [PQ, Tree and heap relationship](#pq-tree-and-heap-relationship)
+    - [Pivot, i, and j positioning](#pivot-i-and-j-positioning)
 - [Reference 🗞](#reference-)
 
 ## Divide and Conquer
@@ -44,16 +46,7 @@ Enjoy your journey learning these fun algorithms! 🥳
 - `O(n)`: Radix sort, counting sort
 
 ### Quicksort ⚡️
-**Questions to be cleared** 🤯
-1. Why do we need to put `arr[pivot]` somewhere "safe"? And where should we put it? First or last position?
-2. Where should we initialize `i` and `j`?
-3. In the last step of swapping `arr[pivot]` to the middle, which element should we switch with?
-4. Where on earth does `arr[i]` point to?
-   - The last element in "smaller" section? Or the first element in "greater" section? Or the first one of "uncompared" section?....
-   - `i` points to the last index where an element is less than or equal to the pivot.
-5. **"Two pointers"** algorithm in quick sort.
-   - Quicksort also implemented **"Two pointers"** algorithm, where i is the slow pointer, and j is the fast pointer. `i` only moves if `arr[j]` is greater than `arr[pivot]`, and increments after swapping.
-
+[Questions to think through before quicksort](#pivot-i-and-j-positioning)
  **To maintain consistency, we will pick the strategy:**
   1. Move the pivot always to the beginning of the segment
   2. Initialize `i` at `low`, `j` at `low + 1`
@@ -110,8 +103,11 @@ So `d` will be how many rounds of sorting we need to perform. In every round, we
 ### BST 
 ### 2-3 Tree
 
+## Dynamic Programming 
+
+
 # Appendix 🖇
-#### PQ, Tree and heap relationship
+### PQ, Tree and heap relationship
 We need to distinguish between `priority queue`, `heap`, `binary tree` and `array` before discussing the implementation of heap sort, because these concepts always intertwined and confused me while learning this sorting algorithm.
 - `Priority queue`: A priority queue is an **abstract data type**(not a data structure) that operates similarly to a regular queue or stack but with a **"priority"** feature. A priority queue can be implemented using **various** data structures, including heaps (most commonly), binary trees, or even arrays.
 - `Heap`: Heap is a **specialized** tree-based data structure where each node conform to the same rules(like max heap or min heap.) A Binray heap can also be implemented as an array for efficiency.
@@ -120,6 +116,17 @@ We need to distinguish between `priority queue`, `heap`, `binary tree` and `arra
 
 **In conclusion**, a binary heap is a more specific type of binary tree, tailored for efficiently managing hierarchical data according to certain rules (heap property).
 A priority queue is an abstract concept that specifies behavior (an ADT) rather than a concrete data structure. A binary heap is a specific data structure that efficiently implements the priority queue ADT.
+
+### Pivot, i, and j positioning
+1. Why do we need to put `arr[pivot]` somewhere "safe"? And where should we put it? First or last position?
+2. Where should we initialize `i` and `j`?
+3. In the last step of swapping `arr[pivot]` to the middle, which element should we switch with?
+4. Where on earth does `arr[i]` point to?
+   - The last element in "smaller" section? Or the first element in "greater" section? Or the first one of "uncompared" section?....
+   - `i` points to the last index where an element is less than or equal to the pivot.
+5. **"Two pointers"** algorithm in quick sort.
+   - Quicksort also implemented **"Two pointers"** algorithm, where i is the slow pointer, and j is the fast pointer. `i` only moves if `arr[j]` is greater than `arr[pivot]`, and increments after swapping.
+
 
 # Reference 🗞
 1. [Visualgo](https://visualgo.net/en/sorting)
