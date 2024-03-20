@@ -18,6 +18,9 @@ Enjoy your journey learning these fun algorithms! 🥳
     - [BST](#bst)
     - [2-3 Tree](#2-3-tree)
   - [Dynamic Programming](#dynamic-programming)
+    - [Fibonacci](#fibonacci)
+    - [Cutting rod](#cutting-rod)
+    - [Longest Common Subsequence](#longest-common-subsequence)
 - [Appendix 🖇](#appendix-)
     - [PQ, Tree and heap relationship](#pq-tree-and-heap-relationship)
     - [Pivot, i, and j positioning](#pivot-i-and-j-positioning)
@@ -104,7 +107,13 @@ So `d` will be how many rounds of sorting we need to perform. In every round, we
 ### 2-3 Tree
 
 ## Dynamic Programming 
+1. Brute force
+2. Table filling
+3. Memoization
 
+### Fibonacci
+### Cutting rod
+### Longest Common Subsequence
 
 # Appendix 🖇
 ### PQ, Tree and heap relationship
