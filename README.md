@@ -107,6 +107,8 @@ So `d` will be how many rounds of sorting we need to perform. In every round, we
 ### 2-3 Tree
 
 ## Dynamic Programming 
+Dynamic programming is wonderful way of solving recurrence in a faster way in trade-off of additional space complexity either by using tabulation or memoization. 
+The primary purpose of using dynamic programming (DP) is to store and reuse the results of subproblems to avoid redundant calculations, thereby reducing the overall time complexity.
 1. Brute force
 
 2. Tabulation

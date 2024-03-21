@@ -26,17 +26,17 @@ class Fibonacci:
         return table[n]
 
     @staticmethod
-    def fibonacci_dp(n: int, memo: list[int] = None) -> int:
+    def fibonacci_memo(n: int, memo: list[int] = None) -> int:
         '''Memoization (Top-Down)'''
         if memo is None:
             memo = [None] * (n+1)
         if n == 0: return 0
         if n == 1: return 1
         if memo[n] is None:
-            memo[n] = Fibonacci.fibonacci_dp(n-1, memo) + Fibonacci.fibonacci_dp(n-2, memo)
+            memo[n] = Fibonacci.fibonacci_memo(n-1, memo) + Fibonacci.fibonacci_memo(n-2, memo)
         return memo[n]
 
 f1 = Fibonacci(10)
 print(f1.fibonacci_bf())
 print(f1.fibonacci_table())
-print(f1.fibonacci_dp(10))
+print(f1.fibonacci_memo(10))
