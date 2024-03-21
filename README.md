@@ -18,7 +18,7 @@ Enjoy your journey learning these fun algorithms! 🥳
     - [BST](#bst)
     - [2-3 Tree](#2-3-tree)
   - [Dynamic Programming](#dynamic-programming)
-    - [Fibonacci](#fibonacci)
+    - [Fibonacci sequence](#fibonacci-sequence)
     - [Cutting rod](#cutting-rod)
     - [Longest Common Subsequence](#longest-common-subsequence)
 - [Appendix 🖇](#appendix-)
@@ -108,13 +108,31 @@ So `d` will be how many rounds of sorting we need to perform. In every round, we
 
 ## Dynamic Programming 
 1. Brute force
-2. Table filling
+
+2. Tabulation
+  ```python
+  def fibonacci_table(self) -> int:
+          '''Tabulation (Bottom-Up) Approach'''
+          n = self.n
+          table = [None] * (n+1)
+          table[0] = 0
+          table[1] = 1
+          for i in range(2, n+1):
+              table[i] = table[i-1] + table[i-2]
+          return table[n]
+  ```
+  In tabulation approach, recursion is not implemented, the value of table[n] is achieved using a loop to get a prefix sum from 2 to n. Since it is accumulated from 2 to 3 to 4 to n, it is a bottom-up approach.
+  
 3. Memoization
 
-### Fibonacci
+### Fibonacci sequence
+**Definition: ** 
+- fibonacci(0) = 0, fibonacci(1) = 1
+- fibonacci(n) = fibonacci(n-1) + fibonacci(n-2), when n >= 2
 [fibonacci.py](./4_dynammic_programming/fibonacci.py)
 
 ### Cutting rod
+
 ### Longest Common Subsequence
 
 
