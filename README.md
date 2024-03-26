@@ -123,7 +123,7 @@ The primary purpose of using dynamic programming (DP) is to store and reuse the 
               table[i] = table[i-1] + table[i-2]
           return table[n]
   ```
-  In tabulation approach, recursion is not implemented, the value of table[n] is achieved using a loop to get a prefix sum from 2 to n. Since it is accumulated from 2 to 3 to 4 to n, it is a bottom-up approach.
+  In tabulation approach, **recursion is avoided**, the value of table[n] is achieved using a loop to get a prefix sum from 2 to n. Since it is accumulated from 2 to 3 to 4 to n, it is a bottom-up approach.
   
 3. Memoization
 
