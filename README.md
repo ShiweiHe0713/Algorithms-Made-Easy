@@ -114,7 +114,7 @@ The primary purpose of using dynamic programming (DP) is to store and reuse the 
 2. Tabulation
   ```python
   def fibonacci_table(self) -> int:
-          '''Tabulation (Bottom-Up) Approach'''
+          '''Tabulation approach | Bottom-Up | Iterative'''
           n = self.n
           table = [None] * (n+1)
           table[0] = 0
