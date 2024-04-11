@@ -21,6 +21,8 @@ Enjoy your journey learning these fun algorithms! 🥳
     - [Fibonacci sequence](#fibonacci-sequence)
     - [Cutting rod](#cutting-rod)
     - [Longest Common Subsequence](#longest-common-subsequence)
+  - [9 Greedy Algorithms](#9-greedy-algorithms)
+    - [Greedy Always Stays Ahead](#greedy-always-stays-ahead)
 - [Appendix 🖇](#appendix-)
     - [PQ, Tree and heap relationship](#pq-tree-and-heap-relationship)
     - [Pivot, i, and j positioning](#pivot-i-and-j-positioning)
@@ -137,6 +139,9 @@ The primary purpose of using dynamic programming (DP) is to store and reuse the 
 
 ### Longest Common Subsequence
 
+## 9 Greedy Algorithms
+### Greedy Always Stays Ahead
+GSAS means, at each step, a greedy algorithm makes the most optimal local choice in the hopes that these choices will lead to a globally optimal solution. (However, it's important to clarify that this doesn't mean greedy algorithms always produce the optimal solution for all problems.)
 
 # Appendix 🖇
 ### PQ, Tree and heap relationship
