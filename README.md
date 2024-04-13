@@ -205,7 +205,7 @@ Note: Often we write undirected edges also as `(c, h)` for simplicity.
 **Method I: Distance:**
 Set `v.d = ∞` and `v.π = NIL` for all v in V, and update `v.d` when first send. If `v.d = ∞`, then v is unvisited, otherwise not.
 <details>
-<summary>Toggle</summary>
+<summary>Pseudo code for method I</summary>
 <pre><code>BFS(G, s):
   for each vertex u in G.V - {s}:
     u.d = ∞
@@ -222,34 +222,52 @@ Set `v.d = ∞` and `v.π = NIL` for all v in V, and update `v.d` when first sen
         v.π = u
         ENQUEUE(Q, v)
 </code></pre>
-</details>
+</details><br>
+
+**Runtime analysis:** Each node enters Q at most once, then we spend O(out-degree(node)) time to process it. Thus, the total runtime is O(n+m), think of the adjacency list representation.
 
 
-**Method II: Coloring**
-- the vertices: White, Gray, Black.
-```verbatim
-BFS(G, s):
-  for each vertex u in G.V - {s}:
-    u.color = WHITE
-    u.d = ∞
-    u.π = NIL
-  s.color = GRAY
-  s.d = 0
-  s.π = NIL
-  Q = ∅
-  ENQUEUE(Q, s)
-  while Q ≠ ∅:
-    u = DEQUEUE(Q)
-    for each v in G.Adj[u]:
-      if v.color == WHITE:
-        v.color = GRAY
-        v.d = u.d + 1
-        v.π = u
-        ENQUEUE(Q, v)
-    u.color = BLACK
-```
 
 #### DFS
+Input: Directed/undirected graph G = (V, E). (No start node needed)
+Output: For each vertex v in V, the discovery time `v.d` and finish time `v.f`, `v.π` is the predecessor of v in the DFS tree.
+
+**Ideas:** Think of a global clock, at each time, either (1) A new node is discovered, or (2) An old node is finished.
+
+**Question: How to check if a vertex is visited?**
+**Method II: Coloring**
+- the vertices: White, Gray, Black.
+![DFS coloring](./0_assets/dfs.png)
+<details>
+<summary>Pseudo code for coloring</summary>
+<pre><code>
+DFS-VISIT(G, u):
+  time = time + 1
+  u.d = time
+  u.color = GRAY
+  for each v in G.Adj[u]:
+    if v.color == WHITE:
+      v.π = u
+      DFS-VISIT(G, v)
+  u.color = BLACK
+  time = time + 1
+  u.f = time
+</code>
+<code>
+DFS-Driver(G):
+  for each vertex u in G.V:
+    u.color = WHITE
+    u.π = NIL
+  time = 0
+  for each vertex u in G.V:
+    if u.color == WHITE:
+      DFS-VISIT(G, u)
+</code>
+</pre>
+</details><br>
+
+**Runtime analysis:** The runtime is O(n+m), since we visit each node once, and spend O(out-degree(node)+1) time to process it.
+
 
 
 # Appendix 🖇
