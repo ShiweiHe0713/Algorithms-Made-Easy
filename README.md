@@ -21,8 +21,14 @@ Enjoy your journey learning these fun algorithms! 🥳
     - [Fibonacci sequence](#fibonacci-sequence)
     - [Cutting rod](#cutting-rod)
     - [Longest Common Subsequence](#longest-common-subsequence)
-  - [9 Greedy Algorithms](#9-greedy-algorithms)
+  - [5 Greedy Algorithms](#5-greedy-algorithms)
     - [Greedy Always Stays Ahead](#greedy-always-stays-ahead)
+  - [6 Graphs](#6-graphs)
+    - [6.1 Graph Terminology](#61-graph-terminology)
+    - [6.2 Graph Representations](#62-graph-representations)
+    - [6.3 Graph Traversal](#63-graph-traversal)
+      - [BFS](#bfs)
+      - [DFS](#dfs)
 - [Appendix 🖇](#appendix-)
     - [PQ, Tree and heap relationship](#pq-tree-and-heap-relationship)
     - [Pivot, i, and j positioning](#pivot-i-and-j-positioning)
@@ -139,9 +145,112 @@ The primary purpose of using dynamic programming (DP) is to store and reuse the 
 
 ### Longest Common Subsequence
 
-## 9 Greedy Algorithms
+## 5 Greedy Algorithms
 ### Greedy Always Stays Ahead
 GSAS means, at each step, a greedy algorithm makes the most optimal local choice in the hopes that these choices will lead to a globally optimal solution. (However, it's important to clarify that this doesn't mean greedy algorithms always produce the optimal solution for all problems.)
+
+## 6 Graphs
+### 6.1 Graph Terminology
+**Term:**
+- `V`: Collection of vertices/node, usually `|V| = n`
+- `E`: Collection of edges, usually `|E| = m`
+- `e = (c, h)`: directed edge from `c` to `h`
+- `e = {c, h}`: **undirected** edge between `c` and `h`
+Note: Often we write undirected edges also as `(c, h)` for simplicity.
+
+**Assume:**
+- Simple graphs, so no parallel edges or self-loops.
+- Edges may have weights/costs/lenghts.
+
+**Number of edges:**
+1. Undirected graph: `0 <= m <= n(n-1)/2` (pick 2 out of n)
+2. Directed graph: `0 <= m <= n(n-1)`
+
+**Handshaking lemma:**
+- In an undirected graph, the sum of the degrees of all vertices is equal to twice the number of edges.
+- Undirected graph: `sum(deg(v)) = 2m`
+- Directed graph: `sum(indeg(v)) = sum(outdeg(v)) = m`
+
+**Cycle Lemma:**
+- Graph G = tree if any two of following 3 conditions are satisfied (and then it implies third condition):
+1. G is connected
+2. G has n-1 edges
+3. G has no cycles"
+
+### 6.2 Graph Representations
+*The following discussion in about directed graphs and trees.*
+![graph representations](./0_assets/graph_repre.png)
+*Image from [Shichao's Notes](https://notes.shichao.io/clrs/)*
+
+**1. Adjacency list**
+- Space complexity: Θ(n+m)
+- Lookup time: Θ(out-deg(v))
+
+
+**2. Adjacency matrix**
+- Keep in mind that every row is the source vertex, and every column is the destination vertex.
+- Space complexity: Θ(n^2) (indepenent of m!)
+- Lookup time: Θ(1)
+
+### 6.3 Graph Traversal
+#### BFS
+**Input:** Directed/undirected graph G = (V, E), source vertex s in V.
+**Output:** For each vertex v in V, the length of the shortest path from s to v.
+- `v.d`: distance from s to v(# of edges).
+- `v.π`: predecessor of v in the shortest path from s to v.
+
+**Ideas:** Find all vertices at distance t = 0,1,2,... from s, before moving to t+1.
+
+**Question: How to check if a vertex is visited?**
+**Method I: Distance:**
+Set `v.d = ∞` and `v.π = NIL` for all v in V, and update `v.d` when first send. If `v.d = ∞`, then v is unvisited, otherwise not.
+<details>
+<summary>Toggle</summary>
+<pre><code>BFS(G, s):
+  for each vertex u in G.V - {s}:
+    u.d = ∞
+    u.π = NIL
+  s.d = 0
+  s.π = NIL
+  Q = ∅
+  ENQUEUE(Q, s)
+  while Q ≠ ∅:
+    u = DEQUEUE(Q)
+    for each v in G.Adj[u]:
+      if v.d == ∞:
+        v.d = u.d + 1
+        v.π = u
+        ENQUEUE(Q, v)
+</code></pre>
+</details>
+
+
+**Method II: Coloring**
+- the vertices: White, Gray, Black.
+```verbatim
+BFS(G, s):
+  for each vertex u in G.V - {s}:
+    u.color = WHITE
+    u.d = ∞
+    u.π = NIL
+  s.color = GRAY
+  s.d = 0
+  s.π = NIL
+  Q = ∅
+  ENQUEUE(Q, s)
+  while Q ≠ ∅:
+    u = DEQUEUE(Q)
+    for each v in G.Adj[u]:
+      if v.color == WHITE:
+        v.color = GRAY
+        v.d = u.d + 1
+        v.π = u
+        ENQUEUE(Q, v)
+    u.color = BLACK
+```
+
+#### DFS
+
 
 # Appendix 🖇
 ### PQ, Tree and heap relationship
