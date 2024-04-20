@@ -29,6 +29,11 @@ Enjoy your journey learning these fun algorithms! 🥳
     - [6.3 Graph Traversal](#63-graph-traversal)
       - [BFS](#bfs)
       - [DFS](#dfs)
+    - [6.4 Topological Sort](#64-topological-sort)
+    - [6.5 Minimum Weight Spanning Tree (MST)](#65-minimum-weight-spanning-tree-mst)
+    - [6.6 Kruskal's Algorithm](#66-kruskals-algorithm)
+    - [6.7 Prim's Algorithm](#67-prims-algorithm)
+    - [6.8 Dijsktra's Algorithm](#68-dijsktras-algorithm)
 - [Appendix 🖇](#appendix-)
     - [PQ, Tree and heap relationship](#pq-tree-and-heap-relationship)
     - [Pivot, i, and j positioning](#pivot-i-and-j-positioning)
@@ -273,6 +278,16 @@ DFS-Driver(G):
 1. `u.d` < `v.d` < `v.f` < `u.f` if `u` is an ancestor of `v`. | `([])` or `[()]`
 2. `u.d` < `u.f` < `v.d` < `v.f` if `u` and `v` are in different subtrees of the DFS tree. `()[]` or `[]()`
 
+### 6.4 Topological Sort
+
+### 6.5 Minimum Weight Spanning Tree (MST)
+
+### 6.6 Kruskal's Algorithm
+
+### 6.7 Prim's Algorithm
+
+### 6.8 Dijsktra's Algorithm
+Prim's and Kruskal's algorithms are used to connect all vertices in a graph in the cheapest way possible. Dijkstra's algorithm is used to find the cheapest route between two vertices.
 
 # Appendix 🖇
 ### PQ, Tree and heap relationship
