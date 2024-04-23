@@ -243,7 +243,7 @@ Output: For each vertex v in V, the discovery time `v.d` and finish time `v.f`, 
 **Question: How to check if a vertex is visited?**
 **Method II: Coloring**
 - the vertices: White, Gray, Black.
-![DFS coloring](./0_assets/dfs.png)
+<img alt="DFS coloring" src="./0_assets/dfs.png" width=500>
 <details>
 <summary>Pseudo code for coloring</summary>
 <pre><code>
@@ -291,6 +291,8 @@ Input: Connected, undirected graph G = (V, E) with edge weights.
 Output: A subset of edges E' ⊆ E such that G' = (V, E') is a tree and the sum of the weights of the edges in E' is minimized.
 
 ### 6.6 Kruskal's Algorithm
+<img alt="Kruskal's Algo" src="0_assets/Kruskal.png" width=500><br>
+*The image's from [stackoverflow](https://stackoverflow.com/questions/1195872/when-should-i-use-kruskal-as-opposed-to-prim-and-vice-versa).*
 Repeatedly pick the cheapest edge until the graph is connected.
 **Steps:**
 - Sort edges to that `w(e1) <= w(e2) <= ... <= w(em)`
@@ -305,7 +307,18 @@ How to prove the correctness and fastness of Kruskal's algorithm?
 - Swap Argument
 
 ### 6.7 Prim's Algorithm
-
+<img alt="Prim's Algo" src="0_assets/Prim.png" width=500><br>
+*The image's from [stackoverflow](https://stackoverflow.com/questions/1195872/when-should-i-use-kruskal-as-opposed-to-prim-and-vice-versa).*
+<summary>Prim's Algorithm</summary>
+<pre><code>Prims(G,s):
+  S = {s}
+  n = |G.V|
+  for i=1 to n-1:
+    find an edge `e` of minimum weight connecting s to a vertex in V-S
+    add e to S
+  return S
+</code></pre>
+<br>
 
 ### 6.8 Dijsktra's Algorithm
 Prim's and Kruskal's algorithms are used to connect all vertices in a graph in the cheapest way possible. Dijkstra's algorithm is used to find the cheapest route between two vertices.
