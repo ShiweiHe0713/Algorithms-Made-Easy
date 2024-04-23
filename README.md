@@ -278,13 +278,34 @@ DFS-Driver(G):
 1. `u.d` < `v.d` < `v.f` < `u.f` if `u` is an ancestor of `v`. | `([])` or `[()]`
 2. `u.d` < `u.f` < `v.d` < `v.f` if `u` and `v` are in different subtrees of the DFS tree. `()[]` or `[]()`
 
+**Theorem 1: Parenthesis Theorem*
+Pass
+**Theorem 2: White-path Theorem**
+Pass
+
 ### 6.4 Topological Sort
+**Definition:** A topological sort of a directed acyclic graph (DAG) is a linear ordering of its vertices such that for every directed edge `u -> v`, `u` comes before `v` in the ordering.
 
 ### 6.5 Minimum Weight Spanning Tree (MST)
+Input: Connected, undirected graph G = (V, E) with edge weights.
+Output: A subset of edges E' ⊆ E such that G' = (V, E') is a tree and the sum of the weights of the edges in E' is minimized.
 
 ### 6.6 Kruskal's Algorithm
+Repeatedly pick the cheapest edge until the graph is connected.
+**Steps:**
+- Sort edges to that `w(e1) <= w(e2) <= ... <= w(em)`
+- Create an empty Set `S`
+- for i=1 to m:
+  - if adding `e_i` to S created no cycles:
+  - add `e_i` to S
+- return T = (V, S)
+
+How to prove the correctness and fastness of Kruskal's algorithm?
+- GASA
+- Swap Argument
 
 ### 6.7 Prim's Algorithm
+
 
 ### 6.8 Dijsktra's Algorithm
 Prim's and Kruskal's algorithms are used to connect all vertices in a graph in the cheapest way possible. Dijkstra's algorithm is used to find the cheapest route between two vertices.
