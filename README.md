@@ -291,8 +291,8 @@ Input: Connected, undirected graph G = (V, E) with edge weights.
 Output: A subset of edges E' ⊆ E such that G' = (V, E') is a tree and the sum of the weights of the edges in E' is minimized.
 
 ### 6.6 Kruskal's Algorithm
-<img alt="Kruskal's Algo" src="0_assets/Kruskal.png" width=500><br>
-*The image's from [stackoverflow](https://stackoverflow.com/questions/1195872/when-should-i-use-kruskal-as-opposed-to-prim-and-vice-versa).*
+<img alt="Kruskal's Algo" src="0_assets/KruskalDemo.gif" width=250><br>
+*Demo from Wikipedia*
 Repeatedly pick the cheapest edge until the graph is connected.
 **Steps:**
 - Sort edges to that `w(e1) <= w(e2) <= ... <= w(em)`
