@@ -306,6 +306,16 @@ How to prove the correctness and fastness of Kruskal's algorithm?
 - GASA
 - Swap Argument
 
+**Union Find**
+- `Find-Set(x)`: return the representative of the set containing x.
+- `Union(x, y)`: merge the sets containing x and y.
+- `Make-Set(x)`: create a new set with a single element x.
+- `Union by rank`: merge the smaller tree into the larger tree.
+- `Path compression`: make the path from x to the root shorter.
+  
+**Runtime analysis:** O(mlogm + mlogn), where m is the number of edges, n is the number of vertices.
+
+
 ### 6.7 Prim's Algorithm
 <img alt="Prim's Algo" src="0_assets/Prim.png" width=500><br>
 *The image's from [stackoverflow](https://stackoverflow.com/questions/1195872/when-should-i-use-kruskal-as-opposed-to-prim-and-vice-versa).*
