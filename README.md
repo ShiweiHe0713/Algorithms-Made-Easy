@@ -292,7 +292,7 @@ Output: A subset of edges E' ⊆ E such that G' = (V, E') is a tree and the sum 
 
 ### 6.6 Kruskal's Algorithm
 <img alt="Kruskal's Algo" src="0_assets/KruskalDemo.gif" width=250><br>
-*Demo from Wikipedia*
+*Demo from Wikipedia*<br>
 Repeatedly pick the cheapest edge until the graph is connected.
 **Steps:**
 - Sort edges to that `w(e1) <= w(e2) <= ... <= w(em)`
