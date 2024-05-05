@@ -34,6 +34,10 @@ Enjoy your journey learning these fun algorithms! 🥳
     - [6.6 Kruskal's Algorithm](#66-kruskals-algorithm)
     - [6.7 Prim's Algorithm](#67-prims-algorithm)
     - [6.8 Dijsktra's Algorithm](#68-dijsktras-algorithm)
+  - [7 Shortest Paths](#7-shortest-paths)
+    - [7.1 Import facts](#71-import-facts)
+    - [7.2 Dijkastra's Algorithm (SSSP with Non-Negative Edges)](#72-dijkastras-algorithm-sssp-with-non-negative-edges)
+    - [7.3 Bellman-Ford Algorithm (SSSP with Negavtive Edges)](#73-bellman-ford-algorithm-sssp-with-negavtive-edges)
 - [Appendix 🖇](#appendix-)
     - [PQ, Tree and heap relationship](#pq-tree-and-heap-relationship)
     - [Pivot, i, and j positioning](#pivot-i-and-j-positioning)
@@ -332,6 +336,31 @@ How to prove the correctness and fastness of Kruskal's algorithm?
 
 ### 6.8 Dijsktra's Algorithm
 Prim's and Kruskal's algorithms are used to connect all vertices in a graph in the cheapest way possible. Dijkstra's algorithm is used to find the cheapest route between two vertices.
+
+## 7 Shortest Paths
+Two scenarios we will discuss:
+1. SSSP: Single source shortest path
+2. ASSP: All source shortest path
+
+Define shortest path as:
+$$ \delta(u,v) = min_{P:u->v} \omega(P)$$
+δ(u,v) = +∞ if no path from u to v.
+
+### 7.1 Import facts
+**Fact 1: Optimal substructure**
+If P is the shortest path from 1 to k, then any sub paths will be the shortest path connecting the two middle nodes.
+
+**Fact 2: Triangle Inequality**
+$$\delta(u,v) \leq \delta(u,x) + \delta(x,v)$$
+Inequality holds true if and only if x is on a shortest u->v path.
+
+### 7.2 Dijkastra's Algorithm (SSSP with Non-Negative Edges)
+
+
+
+
+### 7.3 Bellman-Ford Algorithm (SSSP with Negavtive Edges)
+
 
 # Appendix 🖇
 ### PQ, Tree and heap relationship
