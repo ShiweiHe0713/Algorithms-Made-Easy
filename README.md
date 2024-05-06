@@ -122,6 +122,8 @@ So `d` will be how many rounds of sorting we need to perform. In every round, we
 ## Trees 🌲
 ### BST 
 ### 2-3 Tree
+---
+<img src="0_assets/final_mindmap.png" style="width:500px, align:center"/>
 
 ## Dynamic Programming 
 Dynamic programming is wonderful way of solving recurrence in a faster way in trade-off of additional space complexity either by using tabulation or memoization. 
