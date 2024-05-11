@@ -15,15 +15,17 @@ def fibonacci_table(n):
 
     return table[n]
 
-def fibonacci_memo(n):
-    memo = {}
-    memo[0] = 0
-    memo[1] = 1
+def fibonacci_memo(n, memo):
+    if memo is None:
+        memo = {}
+    if n == 0: return 0
+    if n == 1: return 1
 
     if n not in memo:
-        memo[n] = fibonacci_memo(n-1) + fibonacci_memo(n-2)
-    
-    result = memo[n]
-    return result
+        memo[n] = fibonacci_memo(n-1, memo) + fibonacci_memo(n-2, memo)
 
+    return memo[n]
+
+dp = {}
 print(fibonacci_table(100))
+print(fibonacci_memo(100, dp))

@@ -135,6 +135,7 @@ def fibonacci_bf(self, n):
   if n == 1: return 1
   return self.fibonacci_bf(self.n - 1) + self.fibonacci_bf(self.n - 2)
 ```
+
 2. Tabulation
   ```python
   def fibonacci_table(self) -> int:
@@ -150,6 +151,18 @@ def fibonacci_bf(self, n):
   In tabulation approach, **recursion is avoided**, the value of table[n] is achieved using a loop to get a prefix sum from 2 to n. Since it is accumulated from 2 to 3 to 4 to n, it is a bottom-up approach.
   
 3. Memoization
+```python
+def fibonacci_memo(n):
+  memo = {}
+  memo[0] = 0
+  memo[1] = 1
+
+  if n not in memo:
+    memo[n] = fibonacci_memo(n-1) + fibonacci_memo(n-2)
+
+  return memo[n]
+
+```
 
 ### Fibonacci sequence
 **Definition: ** 
