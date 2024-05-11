@@ -17,7 +17,7 @@ Enjoy your journey learning these fun algorithms! 🥳
   - [Trees 🌲](#trees-)
     - [BST](#bst)
     - [2-3 Tree](#2-3-tree)
-  - [Dynamic Programming](#dynamic-programming)
+  - [4 Dynamic Programming](#4-dynamic-programming)
     - [Fibonacci sequence](#fibonacci-sequence)
     - [Cutting rod](#cutting-rod)
     - [Longest Common Subsequence](#longest-common-subsequence)
@@ -125,11 +125,16 @@ So `d` will be how many rounds of sorting we need to perform. In every round, we
 ---
 <img src="0_assets/final_mindmap.png" style="width:500px, align:center"/>
 
-## Dynamic Programming 
+## 4 Dynamic Programming 
 Dynamic programming is wonderful way of solving recurrence in a faster way in trade-off of additional space complexity either by using tabulation or memoization. 
 The primary purpose of using dynamic programming (DP) is to store and reuse the results of subproblems to avoid redundant calculations, thereby reducing the overall time complexity.
 1. Brute force
-
+```python
+def fibonacci_bf(self, n):
+  if n == 0: return 0
+  if n == 1: return 1
+  return self.fibonacci_bf(self.n - 1) + self.fibonacci_bf(self.n - 2)
+```
 2. Tabulation
   ```python
   def fibonacci_table(self) -> int:
