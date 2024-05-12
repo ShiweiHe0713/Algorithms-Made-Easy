@@ -19,7 +19,7 @@ Enjoy your journey learning these fun algorithms! 🥳
     - [2-3 Tree](#2-3-tree)
   - [4 Dynamic Programming](#4-dynamic-programming)
     - [Fibonacci sequence](#fibonacci-sequence)
-    - [Cutting rod](#cutting-rod)
+    - [Cutting Rod](#cutting-rod)
     - [Longest Common Subsequence](#longest-common-subsequence)
   - [5 Greedy Algorithms](#5-greedy-algorithms)
     - [Greedy Always Stays Ahead](#greedy-always-stays-ahead)
@@ -129,12 +129,14 @@ So `d` will be how many rounds of sorting we need to perform. In every round, we
 Dynamic programming is wonderful way of solving recurrence in a faster way in trade-off of additional space complexity either by using tabulation or memoization. 
 The primary purpose of using dynamic programming (DP) is to store and reuse the results of subproblems to avoid redundant calculations, thereby reducing the overall time complexity.
 1. Brute force
-```python
-def fibonacci_bf(self, n):
-  if n == 0: return 0
-  if n == 1: return 1
-  return self.fibonacci_bf(self.n - 1) + self.fibonacci_bf(self.n - 2)
-```
+  ```python
+  def fibonacci_bf(self, n):
+    if n == 0: return 0
+    if n == 1: return 1
+    return self.fibonacci_bf(self.n - 1) + self.fibonacci_bf(self.n - 2)
+  ```
+  **Runtime analysis**<br>
+  Brute force has an exponetial runtime.
 
 2. Tabulation
   ```python
@@ -149,20 +151,26 @@ def fibonacci_bf(self, n):
           return table[n]
   ```
   In tabulation approach, **recursion is avoided**, the value of table[n] is achieved using a loop to get a prefix sum from 2 to n. Since it is accumulated from 2 to 3 to 4 to n, it is a bottom-up approach.
-  
+
+  **Runtime analysis**<br>
+  DP Table filling approach has a runtime of `O(n)`.
+
 3. Memoization
-```python
-def fibonacci_memo(n):
-  memo = {}
-  memo[0] = 0
-  memo[1] = 1
+  ```python
+  def fibonacci_memo(n):
+    memo = {}
+    memo[0] = 0
+    memo[1] = 1
 
-  if n not in memo:
-    memo[n] = fibonacci_memo(n-1) + fibonacci_memo(n-2)
+    if n not in memo:
+      memo[n] = fibonacci_memo(n-1) + fibonacci_memo(n-2)
 
-  return memo[n]
-
-```
+    return memo[n]
+  ```
+  **Runtime analysis**<br>
+  Claim: The number of recursive calls are no greater than 2(n+1)
+  Proof: At most n+1 times will be write into the memo, and every time when we write into memo, we make 2 recursive calls. So at most 2(n+1) calls.
+  **Theorem: DP Memoization approach runtime: `O(n)`**
 
 ### Fibonacci sequence
 **Definition: ** 
@@ -170,7 +178,7 @@ def fibonacci_memo(n):
 - fibonacci(n) = fibonacci(n-1) + fibonacci(n-2), when n >= 2
 [fibonacci.py](./4_dynammic_programming/fibonacci.py)
 
-### Cutting rod
+### Cutting Rod
 
 ### Longest Common Subsequence
 

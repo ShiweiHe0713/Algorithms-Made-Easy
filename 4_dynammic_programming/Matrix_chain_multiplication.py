@@ -1,6 +1,6 @@
 import sys
 
-def MatrixChainOrder(p, n):
+def matrix_chain_order(p, n):
     # For simplicity of the program, one extra row and one
     # extra column are allocated in m[][].  0th row and 0th
     # column of m[][] are not used
@@ -32,5 +32,5 @@ arr = [10, 5, 20, 50, 40]
 size = len(arr)
  
 print("Minimum number of multiplications is " +
-       str(MatrixChainOrder(arr, size)))
+       str(matrix_chain_order(arr, size)))
 # This Code is contributed by Bhavya Jain
