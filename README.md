@@ -40,7 +40,7 @@ Enjoy your journey learning these fun algorithms! 🥳
     - [6.7 Prim's Algorithm](#67-prims-algorithm)
     - [6.8 Dijsktra's Algorithm](#68-dijsktras-algorithm)
   - [7 Shortest Paths](#7-shortest-paths)
-    - [7.1 Import facts](#71-import-facts)
+    - [7.1 Important facts](#71-important-facts)
     - [7.2 Dijkastra's Algorithm (SSSP with Non-Negative Edges)](#72-dijkastras-algorithm-sssp-with-non-negative-edges)
     - [7.3 Bellman-Ford Algorithm (SSSP with Negavtive Edges)](#73-bellman-ford-algorithm-sssp-with-negavtive-edges)
 - [Appendix 🖇](#appendix-)
@@ -440,7 +440,7 @@ Define shortest path as:
 $$ \delta(u,v) = min_{P:u->v} \omega(P)$$
 δ(u,v) = +∞ if no path from u to v.
 
-### 7.1 Import facts
+### 7.1 Important facts
 **Fact 1: Optimal substructure**
 If P is the shortest path from 1 to k, then any sub paths will be the shortest path connecting the two middle nodes.
 
