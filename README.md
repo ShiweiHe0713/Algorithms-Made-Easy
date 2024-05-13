@@ -22,7 +22,11 @@ Enjoy your journey learning these fun algorithms! 🥳
     - [Cutting Rod](#cutting-rod)
     - [Longest Common Subsequence](#longest-common-subsequence)
   - [5 Greedy Algorithms](#5-greedy-algorithms)
-    - [Greedy Always Stays Ahead](#greedy-always-stays-ahead)
+    - [5.1 Define greedy algos](#51-define-greedy-algos)
+    - [5.2 Proof of Greedy](#52-proof-of-greedy)
+      - [GASA](#gasa)
+      - [Swap Argument](#swap-argument)
+    - [Huffman Encoding](#huffman-encoding)
   - [6 Graphs](#6-graphs)
     - [6.1 Graph Terminology](#61-graph-terminology)
     - [6.2 Graph Representations](#62-graph-representations)
@@ -128,6 +132,13 @@ So `d` will be how many rounds of sorting we need to perform. In every round, we
 ## 4 Dynamic Programming 
 Dynamic programming is wonderful way of solving recurrence in a faster way in trade-off of additional space complexity either by using tabulation or memoization. 
 The primary purpose of using dynamic programming (DP) is to store and reuse the results of subproblems to avoid redundant calculations, thereby reducing the overall time complexity.
+
+### Fibonacci sequence
+**Definition:** 
+- fibonacci(0) = 0, fibonacci(1) = 1
+- fibonacci(n) = fibonacci(n-1) + fibonacci(n-2), when n >= 2
+[fibonacci.py](./4_dynammic_programming/fibonacci.py)
+
 1. Brute force
   ```python
   def fibonacci_bf(self, n):
@@ -172,19 +183,61 @@ The primary purpose of using dynamic programming (DP) is to store and reuse the 
   Proof: At most n+1 times will be write into the memo, and every time when we write into memo, we make 2 recursive calls. So at most 2(n+1) calls.
   **Theorem: DP Memoization approach runtime: `O(n)`**
 
-### Fibonacci sequence
-**Definition: ** 
-- fibonacci(0) = 0, fibonacci(1) = 1
-- fibonacci(n) = fibonacci(n-1) + fibonacci(n-2), when n >= 2
-[fibonacci.py](./4_dynammic_programming/fibonacci.py)
 
 ### Cutting Rod
+See [cutting_rod.py](./4_dynammic_programming/cutting_rod.py)
 
 ### Longest Common Subsequence
+See [longest_common_subsequence(lcs).py](./4_dynammic_programming/lcs.py)
 
 ## 5 Greedy Algorithms
-### Greedy Always Stays Ahead
+### 5.1 Define greedy algos
+**Activity Selection**
+We are given a set of activities $(a_i, b_i)$, represented as intervals on the timeline. We want to choose collection that is disjoint, so that we can perform all these activity without them overlapping. 
+What is the maximum number of activities we can choose?
+
+**Greedy algorithm:**
+1. Pick the "best first" activity.
+2. Remove all activities that conflict with this
+3. if exists activities remaining, keep applying this
+
+In this case, we should always pick the intervals with the ealiest end time.
+
+### 5.2 Proof of Greedy
+#### GASA
 GSAS means, at each step, a greedy algorithm makes the most optimal local choice in the hopes that these choices will lead to a globally optimal solution. (However, it's important to clarify that this doesn't mean greedy algorithms always produce the optimal solution for all problems.)
+
+**Progress measure**
+Write down a "progress measure" and show that greedy is better than any other algorithm, at all point of the algo.
+**Useful tip: Clearly write down progress measure first!**
+ 
+**Theorem**
+- Let G be the greedy solution
+- Let Z be any other solution. 
+- Then for all $i \geq 0$, $F_i(G) \leq F_i(Z)$
+
+**Prove GASA by induction**
+F represents the end time of an interval here.
+- Base case: $F_0(G) = F_0(Z) = -\infty$
+- Inductive step: suppose $F_{i-1}(G) \leq F_{i-1}(Z)$
+- Prove consider choosing about the $i_{th}$ element by G ends no greater than the $i_{th}$ element chosen by Z.
+
+#### Swap Argument
+Define a sequence of solutions: 
+
+### Huffman Encoding
+Huffman coding is a popular algorithm used for lossless data compression. It was developed by David A. Huffman in 1952 while he was a student at MIT. Huffman coding is widely used in various applications such as file compression (e.g., ZIP files), image compression (e.g., JPEG), and communication protocols.
+
+**Using greedy algorithm to build a Huffman tree**
+We want prefix free encoding(PFE), so that F(i) is ont a prefix of F(j) for any i!=j. And minimize the average depth of PFE.
+
+**Define an Optimal Prefix Tree:**
+1. No vertex with single child
+2. Deeper nodes have lower probability
+3. Deepest leaf(say x) has a sibling(due to prop1), which must also be a leaft(say y.)
+
+**Theorem**
+If x and y have least probability values, then there is an optimal tree where x and y are siblings.
 
 ## 6 Graphs
 ### 6.1 Graph Terminology
@@ -200,19 +253,19 @@ Note: Often we write undirected edges also as `(c, h)` for simplicity.
 - Edges may have weights/costs/lenghts.
 
 **Number of edges:**
-1. Undirected graph: `0 <= m <= n(n-1)/2` (pick 2 out of n)
-2. Directed graph: `0 <= m <= n(n-1)`
+1. Undirected graph: $0 \leq m \leq \frac{n(n-1)}{2}$ (pick 2 out of n)
+2. Directed graph: $0 \leq m \leq n(n-1)$, since every edge in the undirected graph can be bi-directional.
 
 **Handshaking lemma:**
 - In an undirected graph, the sum of the degrees of all vertices is equal to twice the number of edges.
-- Undirected graph: `sum(deg(v)) = 2m`
-- Directed graph: `sum(indeg(v)) = sum(outdeg(v)) = m`
+- Directed graph: $$ \sum_{v \in V} indegree(v) = \sum_{v \in V} outdegree(v) = m $$
+- Undirected graph: $$ \sum_{v \in V} indegree(v) = 2m $$
 
 **Cycle Lemma:**
 - Graph G = tree if any two of following 3 conditions are satisfied (and then it implies third condition):
 1. G is connected
 2. G has n-1 edges
-3. G has no cycles"
+3. G has no cycles
 
 ### 6.2 Graph Representations
 *The following discussion in about directed graphs and trees.*
@@ -220,17 +273,17 @@ Note: Often we write undirected edges also as `(c, h)` for simplicity.
 *Image from [Shichao's Notes](https://notes.shichao.io/clrs/)*
 
 **1. Adjacency list**
-- Space complexity: Θ(n+m)
-- Lookup time: Θ(out-deg(v))
-
+- Space complexity: $Θ(m+n)$
+- Lookup time: $Θ(out-deg(v))$
 
 **2. Adjacency matrix**
 - Keep in mind that every row is the source vertex, and every column is the destination vertex.
-- Space complexity: Θ(n^2) (indepenent of m!)
-- Lookup time: Θ(1)
+- Space complexity: $Θ(n^2)$ (indepenent of m!)
+- Lookup time: $Θ(1)$
 
 ### 6.3 Graph Traversal
 [BFS and DFS visualization website](https://visualgo.net/en/dfsbfs)
+
 #### BFS
 **Input:** Directed/undirected graph G = (V, E), source vertex s in V.
 **Output:** For each vertex v in V, the length of the shortest path from s to v.
