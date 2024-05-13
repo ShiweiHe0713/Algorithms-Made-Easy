@@ -38,6 +38,9 @@ def cutting_rod_tab(n):
 
 def cutting_rod_memo(n, memo):
     if n == 0: return 0
+    if n in memo:
+        return memo[n]
+    
     result = -1
     cur_val = -1
     
@@ -46,9 +49,7 @@ def cutting_rod_memo(n, memo):
     memo[0] = 0
 
     for i in range(1, n+1):
-        if (n - i) not in memo:
-            cur_val = rod[i] + cutting_rod_memo(n - i, memo)
-        cur_val = rod[i] + memo[n-i]
+        cur_val = rod[i] + cutting_rod_memo(n - i, memo)
         if cur_val > result:
             result = cur_val
     
