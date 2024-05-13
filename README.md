@@ -33,6 +33,7 @@ Enjoy your journey learning these fun algorithms! 🥳
     - [6.3 Graph Traversal](#63-graph-traversal)
       - [BFS](#bfs)
       - [DFS](#dfs)
+      - [4 kinds of edges](#4-kinds-of-edges)
     - [6.4 Topological Sort](#64-topological-sort)
     - [6.5 Minimum Weight Spanning Tree (MST)](#65-minimum-weight-spanning-tree-mst)
     - [6.6 Kruskal's Algorithm](#66-kruskals-algorithm)
@@ -359,14 +360,26 @@ DFS-Driver(G):
 
 **Runtime analysis:** The runtime is O(n+m), since we visit each node once, and spend O(out-degree(node)+1) time to process it.
 
-**Parenthesis Theorem**
+**Theorem 1: Parenthesis Theorem**
 1. `u.d` < `v.d` < `v.f` < `u.f` if `u` is an ancestor of `v`. | `([])` or `[()]`
 2. `u.d` < `u.f` < `v.d` < `v.f` if `u` and `v` are in different subtrees of the DFS tree. `()[]` or `[]()`
 
-**Theorem 1: Parenthesis Theorem*
-Pass
 **Theorem 2: White-path Theorem**
-Pass
+Node v is a descendent of u in T if and only if at time u.start, exists a white path from u to v.
+Proof: If v is indeed a descendent of u, at time of u.start, each recursive calls on u_i are made after u.d
+
+#### 4 kinds of edges
+1. Tree edges
+  Points to white nodes, to child
+2. **Back edges**
+  Points to grey nodes, to ancestor
+3. Forward edges
+  Points to black nodes, to descendent
+4. cross edges
+  Points to black nodes, to descendent of its sibling's subtree
+
+**Theorem: Cycle and back edges**
+**G has no cycles(acyclic) <=> DFS(G) has no back edges**
 
 ### 6.4 Topological Sort
 **Definition:** A topological sort of a directed acyclic graph (DAG) is a linear ordering of its vertices such that for every directed edge `u -> v`, `u` comes before `v` in the ordering.
