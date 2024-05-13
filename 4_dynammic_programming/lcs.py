@@ -1,3 +1,5 @@
+import numpy as np
+
 # Longest common subsequence
 def lcs_bf(A, B):
     """Run in exponential time"""
@@ -30,19 +32,15 @@ def lcs_memo(A, B):
 def lcs_table(A, B):
     m = len(A)
     n = len(B)
-    T = [[None] * n] * m
+    T = np.zeros((m+1,n+1), dtype=int)
 
-    for i in range(0, m):
-        T[i][0] = 0
-    for j in range(0,n):
-        T[0][j] = 0
-        
-    for i in range(1, m):
-        for j in range(1, n):
-            if A[i] == B[j]:
+    for i in range(1, m+1):
+        for j in range(1, n+1):
+            if A[i-1] == B[j-1]:
                 T[i][j] = 1 + T[i-1][j-1]
             else:
-                T[i][j] = max(T[i][j-1], T[i-1][j])
+                T[i][j] = max(T[i-1][j], T[i][j-1])
+    print(np.matrix(T).T)
     return T[-1][-1]
 
 def main():
