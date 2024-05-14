@@ -405,7 +405,18 @@ Repeatedly pick the cheapest edge until the graph is connected.
   - if adding `e_i` to S created no cycles:
   - add `e_i` to S
 - return T = (V, S)
+<pre><code>
+def kruskals(G, W):
+    sorted_w = sorted(W) # O(nlogn)
+    S = {}
 
+    for w in sorted_w: # Θ(n)
+        if w not in S and S.append(w, inplace=False).acyclic():
+            if S.size() > G.V - 1: 
+                break
+            S.append(w)
+    return T(V,S)
+</code></pre>
 How to prove the correctness and fastness of Kruskal's algorithm?
 - GASA
 - Swap Argument

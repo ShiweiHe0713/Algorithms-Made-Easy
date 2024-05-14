@@ -1,7 +1,4 @@
 def kruskals(G, W):
-    """
-    
-    """
     sorted_w = sorted(W) # O(nlogn)
     S = {}
 
