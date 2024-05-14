@@ -41,7 +41,7 @@ Enjoy your journey learning these fun algorithms! 🥳
     - [6.8 Dijsktra's Algorithm](#68-dijsktras-algorithm)
   - [7 Shortest Paths](#7-shortest-paths)
     - [7.1 Important facts](#71-important-facts)
-    - [7.2 Dijkastra's Algorithm (SSSP with Non-Negative Edges)](#72-dijkastras-algorithm-sssp-with-non-negative-edges)
+    - [7.2 Dijkstra's Algorithm (SSSP with Non-Negative Edges)](#72-dijkstras-algorithm-sssp-with-non-negative-edges)
     - [7.3 Bellman-Ford Algorithm (SSSP with Negavtive Edges)](#73-bellman-ford-algorithm-sssp-with-negavtive-edges)
 - [Appendix 🖇](#appendix-)
     - [PQ, Tree and heap relationship](#pq-tree-and-heap-relationship)
@@ -318,8 +318,6 @@ Set `v.d = ∞` and `v.π = NIL` for all v in V, and update `v.d` when first sen
 
 **Runtime analysis:** Each node enters Q at most once, then we spend O(out-degree(node)) time to process it. Thus, the total runtime is O(n+m), think of the adjacency list representation.
 
-
-
 #### DFS
 Input: Directed/undirected graph G = (V, E). (No start node needed)
 Output: For each vertex v in V, the discovery time `v.d` and finish time `v.f`, `v.π` is the predecessor of v in the DFS tree.
@@ -435,21 +433,56 @@ Two scenarios we will discuss:
 1. SSSP: Single source shortest path
 2. ASSP: All source shortest path
 
+| Type | Algorithm     | Runtime            |
+|------|---------------|--------------------|
+| SSSP | Dijkstra      | $O((m+n)logn)$     |
+|      | Bellman-Ford  | $O(mn)$            |
+| APSP | Floyd-Warshall| $O(mn + n^2logn)$  |
+|      | Johnson's     | $O(mnlogn)$        |
+
+**Shortest path metrics**
 Define shortest path as:
 $$ \delta(u,v) = min_{P:u->v} \omega(P)$$
-δ(u,v) = +∞ if no path from u to v.
+δ(u,v) = +∞ if no path from u to v(Unreachable, infinite distance). This is the thing we try to compute! s.d can hold estimates.
 
 ### 7.1 Important facts
 **Fact 1: Optimal substructure**
-If P is the shortest path from 1 to k, then any sub paths will be the shortest path connecting the two middle nodes.
+If P is the shortest path from 1 to k, then any sub paths (i,j)will be the shortest path connecting i and j.
 
 **Fact 2: Triangle Inequality**
 $$\delta(u,v) \leq \delta(u,x) + \delta(x,v)$$
 Inequality holds true if and only if x is on a shortest u->v path.
 
-### 7.2 Dijkastra's Algorithm (SSSP with Non-Negative Edges)
+**Fact 3: Negative cycle**
+If weight are negative, then there may not be a well-defined shortest path. This is because of a negative weight cycle can go around forever.
 
+### 7.2 Dijkstra's Algorithm (SSSP with Non-Negative Edges)
+See [Dijkstra.py](./6_graphs/dijkstra.py)
 
+**Relaxing**
+- Maintain estimates for shortest path distance to each node: v.d
+  - initially: s.d = 0, v.d = ∞ 
+  - Take node u with the smallest estimates that is not output yet
+    - look at its outgoing edges and update estimates
+    - output u (u.d == δ(s,u))
+
+<pre><code>Dijkstra(G, s):
+    Set = {}
+    s.d = 0
+    v.d = ∞ forall v != s
+    s.π = nil
+    v.π = nil
+    while |Set| < |V|
+      u <- extractmin(V\Set)
+      Set.add(u)
+      for v in Adj[u]:
+        v.d <- min(r.d, u.d+w(u,v))
+        v.π <- u
+</code></pre>
+
+**Lemma1:** $v.d \geq \sigma(s,v)$ at all times
+**Lemma2:** The order that each node added to the set is the same oder that there distance is in.
+**Lemma3:** At the time when u added to S, $u.d =\sigma(s,u)$
 
 
 ### 7.3 Bellman-Ford Algorithm (SSSP with Negavtive Edges)

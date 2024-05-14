@@ -1,7 +1,9 @@
 def connecting(U, V_U):
     # 1. w_i must not create cycles
+    #   Union find
     # 2. w_i connecting these two components
     # 3. w_i is the smallest
+    #   Priority Queue
     return U
 
 def prims(G):
