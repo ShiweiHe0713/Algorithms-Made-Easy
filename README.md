@@ -44,6 +44,7 @@ Enjoy your journey learning these fun algorithms! 🥳
     - [7.2 Dijkstra's Algorithm (SSSP with Non-Negative Edges)](#72-dijkstras-algorithm-sssp-with-non-negative-edges)
     - [7.3 Bellman-Ford Algorithm (SSSP with Negavtive Edges)](#73-bellman-ford-algorithm-sssp-with-negavtive-edges)
     - [7.4 Floyd-Warshall (APSP)](#74-floyd-warshall-apsp)
+    - [7.5 Johnson's Algorithm](#75-johnsons-algorithm)
 - [Appendix 🖇](#appendix-)
     - [PQ, Tree and heap relationship](#pq-tree-and-heap-relationship)
     - [Pivot, i, and j positioning](#pivot-i-and-j-positioning)
@@ -566,6 +567,27 @@ $$F_{u \rightarrow v}^{k} = min_{x \in u \rightarrow v}(F_{u \rightarrow v}^{k-1
   return T
 </pre><code>
 see [floyd_warshall.py](./6_graphs/floyd_warshall.py)
+
+### 7.5 Johnson's Algorithm
+Ideas in short: Shift all the edges to non-negative, then run n times Dijkstra's to every pair. We get $O(mnlogn)$.
+
+**Johnson's Algo**
+1. Use 1 run of Bellman to get "shifts". $O(mn)$
+2. "shift" all the edges to non-negative. $O(m)$
+  (shortest path stays the same)
+3. Run n times Dijkstra's. $O(mnlogn)$
+**Overall runtime:** $O(mnlogn)$
+
+**Shifting**
+1. We have a height function: $h(V) -> \real$.
+2. We define $$\hat{w_{u,v}} = h(u) - h(v) + w(u,v)$$
+
+**Why the shortest path stay the same?**
+$$\hat{w_{s,t}} = \hat{w_{v1,v2}} + \hat{w_{v2,v3}} + ... + \hat{w_{v_{n},v}} = h(s) - h(v) + w(s,t)$$
+
+**How to shift?**
+Or how to make $\hat{w(u,v)} \geq 0$ for all $u,v \in V$?
+- Find a $V^*$ so that it can reach every other node, compute every node's distance from $V^*$, define the distance as height, and it must be non-negative.
 
 # Appendix 🖇
 ### PQ, Tree and heap relationship
