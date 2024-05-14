@@ -468,12 +468,10 @@ See [Dijkstra.py](./6_graphs/dijkstra.py)
 
 <pre><code>Dijkstra(G, s):
     Set = {}
-    s.d = 0
-    v.d = ∞ forall v != s
-    s.π = nil
-    v.π = nil
+    s.d = 0, v.d = ∞ forall v != s
+    s.π = nil, v.π = nil
     while |Set| < |V|
-      u <- extractmin(V\Set)
+      u <- extractmin(V\Set) # Using PQ
       Set.add(u)
       for v in Adj[u]:
         v.d <- min(r.d, u.d+w(u,v))
@@ -484,8 +482,31 @@ See [Dijkstra.py](./6_graphs/dijkstra.py)
 **Lemma2:** The order that each node added to the set is the same oder that there distance is in.
 **Lemma3:** At the time when u added to S, $u.d =\sigma(s,u)$
 
-
 ### 7.3 Bellman-Ford Algorithm (SSSP with Negavtive Edges)
+Bellman-Ford algorithm features:
+1. Deal with negative weights
+2. Detect negative weight cycle
+3. Incorporate Dynamic Programming in relaxing
+4. Has a runtime of O(mn)
+
+pseucode code:
+<pre><code>Bellman-Ford(G, s)
+  for each vertex v in G:
+    v.d = ∞
+  s.d = 0
+
+  for i from 1 to |V| - 1:
+    for each edge (u, v) in G:
+      if u.d + w(u, v) < v.d:
+        v.d = u.d + w(u, v)
+
+  for each edge (u, v) in G:
+    if u.d + w(u, v) < v.d:
+      error("Graph contains a negative-weight cycle")
+
+  return
+</code></pre>
+See [bellman_ford.py](./6_graphs/bellman_ford.py)
 
 
 # Appendix 🖇
