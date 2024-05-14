@@ -413,7 +413,6 @@ How to prove the correctness and fastness of Kruskal's algorithm?
   
 **Runtime analysis:** O(mlogm + mlogn), where m is the number of edges, n is the number of vertices.
 
-
 ### 6.7 Prim's Algorithm
 <img alt="Prim's Algo" src="0_assets/Prim.png" width=500><br>
 *The image's from [stackoverflow](https://stackoverflow.com/questions/1195872/when-should-i-use-kruskal-as-opposed-to-prim-and-vice-versa).*
