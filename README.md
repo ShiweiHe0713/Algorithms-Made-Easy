@@ -383,6 +383,12 @@ Proof: If v is indeed a descendent of u, at time of u.start, each recursive call
 
 ### 6.4 Topological Sort
 **Definition:** A topological sort of a directed acyclic graph (DAG) is a linear ordering of its vertices such that for every directed edge `u -> v`, `u` comes before `v` in the ordering.
+Input: Directed Acyclic Graph G = (V,E)
+Output: Nodes in an order that all edges go from left to right.
+
+**How to run topo sort on a DAG?**
+1. Run DFS
+2. Output in reverse order of v.f numbers.
 
 ### 6.5 Minimum Weight Spanning Tree (MST)
 Input: Connected, undirected graph G = (V, E) with edge weights.
