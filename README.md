@@ -43,6 +43,7 @@ Enjoy your journey learning these fun algorithms! 🥳
     - [7.1 Important facts](#71-important-facts)
     - [7.2 Dijkstra's Algorithm (SSSP with Non-Negative Edges)](#72-dijkstras-algorithm-sssp-with-non-negative-edges)
     - [7.3 Bellman-Ford Algorithm (SSSP with Negavtive Edges)](#73-bellman-ford-algorithm-sssp-with-negavtive-edges)
+    - [7.4 Floyd-Warshall (APSP)](#74-floyd-warshall-apsp)
 - [Appendix 🖇](#appendix-)
     - [PQ, Tree and heap relationship](#pq-tree-and-heap-relationship)
     - [Pivot, i, and j positioning](#pivot-i-and-j-positioning)
@@ -483,13 +484,13 @@ See [Dijkstra.py](./6_graphs/dijkstra.py)
 **Lemma3:** At the time when u added to S, $u.d =\sigma(s,u)$
 
 ### 7.3 Bellman-Ford Algorithm (SSSP with Negavtive Edges)
-Bellman-Ford algorithm features:
+**Bellman-Ford algorithm features:**
 1. Deal with negative weights
 2. Detect negative weight cycle
 3. Incorporate Dynamic Programming in relaxing
 4. Has a runtime of O(mn)
 
-pseucode code:
+**Pseucode code:**
 <pre><code>Bellman-Ford(G, s)
   for each vertex v in G:
     v.d = ∞
@@ -508,6 +509,63 @@ pseucode code:
 </code></pre>
 See [bellman_ford.py](./6_graphs/bellman_ford.py)
 
+**Recursion and DP**
+Bellman-Ford keeps a table to store the shortest distance array `DP = []`, and update it based on the neighbors.
+In relaxation:
+$$DP[v] = min(DP[v], DP[u] + w(u,v))$$
+is a bottom-up fill taling DP inplementation.
+
+Now, let's prove the recursive relation.
+Define: $T_{s->v}^k$ = shortest path from s to v using **at most** k edges.
+Base case: $T_{s->s}^k = 0$, $T_{s->v}^k = \infin$
+Recurrence:
+$$T_{s \rightarrow v}^k = min_{x \in V}(T_{s \rightarrow x}^{k-1} + w(x,v))$$
+(* We include `v` itself in x as well)
+- O(m): Compute $T^k$ from T^{k-1}
+- n-1: $T^{n-1}$ - each SP has at most n-1 vertices
+- Runtime = O(mn)
+
+Implementation:
+$$T[v] = min(T[v], T[u] + u(u,v))$$
+Where T store the shortest distance, so T[v] will based on T[u] and the weight, T[u] will based on its in-edges, recursively fill the table.
+
+### 7.4 Floyd-Warshall (APSP)
+- Run Bellman n times: $n * O(mn) = O(mn^2) = O(n^4)$
+- Floyd-Warshall can run in $O(n^3)$, or $O(mn+n^2logn)$ for sparse graphs(where m much smaller than $n^2$).
+
+Define: $F_{u \rightarrow v}^k$ is the shortest path from u to v using paths containing intermediate vertices from {1,2,..**z**} (First z vertices).
+
+**Base case:**
+F is a 2D array of size (1+m)(1+n)
+$F_{u \rightarrow u}^k = 0$
+$F_{u \rightarrow v}^k = w(u,v)$
+$F_{u \rightarrow v}^k = \infin$, otherwise
+
+**Recursion**
+$$F_{u \rightarrow v}^{k} = min_{x \in u \rightarrow v}(F_{u \rightarrow v}^{k-1}, F_{u \rightarrow x}^{k-1} + F_{x \rightarrow v}^{k-1})$$
+
+**DP implementation**
+<pre><code>
+  Floyd-Warshall(G)
+  n = number of vertices in G
+
+  T = array of size [n][n]
+  for i from 1 to n:
+    for j from 1 to n:
+      if i == j:
+        T[i][j] = 0
+      else if there is an edge from i to j:
+        T[i][j] = w(i, j)
+      else:
+        T[i][j] = ∞
+  
+  for k from 1 to n:
+    for i from 1 to n:
+      for j from 1 to n:
+        T[i][j] = min(T[i][j], T[i][k] + T[k][j])
+  return T
+</pre><code>
+see [floyd_warshall.py](./6_graphs/floyd_warshall.py)
 
 # Appendix 🖇
 ### PQ, Tree and heap relationship
