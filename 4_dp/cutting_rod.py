@@ -26,14 +26,12 @@ def cutting_rod_tab(n):
     table = [None] * (n+1)
     table[0] = 0
     result = -1
-
     for i in range(1, n+1):
         for j in range(1, i+1):
             cur_val = rod[j] + table[i-j]
             if cur_val > result:
                 result = cur_val
         table[i] = result
-
     return table[n]
 
 def cutting_rod_memo(n, memo):
