@@ -23,4 +23,3 @@ class Solution:
 def cmp(a: int, b: int) -> int:
     return (a > b) - (a < b)
 
-print(cmp(5,4))
