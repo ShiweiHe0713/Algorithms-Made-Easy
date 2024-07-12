@@ -1,12 +1,8 @@
 from typing import Optional, List
-from tree_node import TreeNode
+from tree import TreeNode, Tree
 
 # dfs, bfs, preorder, inorder, postorder
 
-class Tree:
-    def __init__(self, root: List[int]) -> Optional[TreeNode]:
-        pass
-        
 class Traversal:
     def dfs_preorder(self, root: Optional[TreeNode]) -> List[int]:        
         """144. Binary Tree Preorder Traversal"""
