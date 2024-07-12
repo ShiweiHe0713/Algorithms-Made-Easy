@@ -5,12 +5,12 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+        self.parent = None
 
 class Tree:
     # def __init__(self, root: List[int]) -> Optional[TreeNode]:
     #     """Level-order array to Tree"""
     #     pass
-    
     def array_to_tree(self, array: List[int]) -> Optional[TreeNode]:
         if not array:
             return None
@@ -33,7 +33,6 @@ class Tree:
             i += 1
         
         return root
-
 
     def array_to_bst(self, array: List[int]) -> Optional[TreeNode]:
 
