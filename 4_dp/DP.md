@@ -1,9 +1,10 @@
 # Dynammic Programming
 
 ## DP问题的一些特征
-
-- Current decision will have impact on the future
-
+1. Can be divided into subproblems
+2. Have optimal substructures
+3. Current decision will have impact on the future
+   **- If current decision don't have future impact, it will be a greedy problem**
 
 
 [746. Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/description/)
