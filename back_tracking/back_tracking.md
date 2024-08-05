@@ -26,3 +26,5 @@ class Solution:
 - and why we don't have to delete the string after the dfs(node.left)?
     Because the `path` we pass into dfs(node.left, path) and dfs(node.right, path) is the same. The path passed into dfs(node.right, path) won't be modified by the path passed in dfs, it only acts like a formal argument.
 
+In [113 Path Sum II](/back_tracking/113_path_sum_II.py), we have to return the **copy of an array instead**, otherwise the array is passed by reference and will be changed in the future potentially causing unwanted changes.
+Once we enter the recursive funciton body, we either return or not. When it is the non-terminating case, we will append the element into the array and then doing other operations such as handling the leaf node, calling other dfs functions. **After these being done, we will pop the element out of the array to finish backtracking process.**

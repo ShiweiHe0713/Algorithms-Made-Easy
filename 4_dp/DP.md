@@ -7,26 +7,7 @@
    **- If current decision don't have future impact, it will be a greedy problem**
 
 
-[746. Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/description/)
-Reverse order DP:
-```python
-class Solution:
-    def minCostClimbingStairs(self, cost: List[int]) -> int:
-        for i in range(len(cost)-3, -1, -1):
-            cost[i] += min(cost[i+1], cost[i+2])
-        return min(cost[0], cost[1])
-```
-Natural ordered DP:
-```python
-class Solution:
-    def minCostClimbingStairs(self, cost: List[int]) -> int:
-        for i in range(2, len(cost)):
-            if i == len(cost):
-                cost[i] = min(cost[i], cost[i-1])
-            cost[i] += min(cost[i-1], cost[i-2])
-        return min(cost[-1], cost[len(cost)-2])
-```
-Let's change the condition to we can jump k steps each time. 
+For [746. Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/description/), let's change the condition to we can jump up to k steps each time. 
 After adding this condition, we will have to consider in each dp(i) call, we have to find the minimum cost for [0,k] steps or [0,i] steps(if i < k). We simply add a for loop in a dp recursive call to calculate every dp value from i-1 to i - min(i,k), and update the min value, then return it.
 ```python
 def minCostClimbingStairs_ksteps_tab(self, cost, k):

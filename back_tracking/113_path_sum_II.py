@@ -1,6 +1,5 @@
 from typing import List, Optional
 
-
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -14,15 +13,13 @@ class Solution:
                 return
             cur_sum += node.val
             arr.append(node.val)
-            if not node.left and not node.right:
-                # We will append and return at here
-                if cur_sum == targetSum:
-                    result.append(arr.copy())
-                arr.pop()
-                return    
-            
-            dfs(node.left, arr, cur_sum)
-            dfs(node.right, arr, cur_sum)
+            # leaf node
+            if not node.left and not node.right and cur_sum == targetSum:
+                result.append(arr.copy())
+            # Non-leaf nodes
+            else:
+                dfs(node.left, arr, cur_sum)
+                dfs(node.right, arr, cur_sum)
             arr.pop()
 
         result = []
