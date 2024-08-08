@@ -4,6 +4,7 @@ class SparseVector:
     def __init__(self, nums: List[int]):
         self.hashmap = {}
         self.length = 0
+        # O(n)
         for i, num in enumerate(nums):
             if num != 0:
                 self.hashmap[i] = num
@@ -21,15 +22,16 @@ class SparseVector:
         n = vec.length
         i = j = 0
         # less or equal to cuz i,j stand for key in hashmap, not index in array
+        # O(max(m,n))
         while i <= m and j <= n:
-            while i < j:
-                i += 1
-            while j < i:
-                j += 1
             if i == j and i in self.hashmap and j in vec.hashmap:
                 acc_product += self.hashmap[i] * vec.hashmap[j]
-            i += 1
-            j += 1
+                i += 1
+                j += 1
+            elif i < j:
+                i += 1
+            else:
+                j += 1
 
         return acc_product
 
