@@ -17,7 +17,7 @@ class Solution:
 
                 for x, y in directions:
                     new_x, new_y = i + x, j + y
-                    if new_x < 0 or new_x >= m or new_y < 0 or new_y >= n or (new_x, new_y) in visited or rooms[new_x][new_y] in (-1, 0):
+                    if new_x < 0 or new_x >= m or new_y < 0 or new_y >= n or (new_x, new_y) in visited or rooms[new_x][new_y] != pow(2,31) - 1:
                         continue
                     if rooms[new_x][new_y] > rooms[i][j] + 1:
                         rooms[new_x][new_y] = rooms[i][j] + 1
