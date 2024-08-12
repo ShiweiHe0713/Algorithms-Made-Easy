@@ -12,3 +12,6 @@
         Leetcode 348 Design Tic-Tac-Toe
 
 **在要用到Hashmap存number or strings的时候，一定要注意是否有重复元素，然后区分Value应该是array还是int/string。**
+
+In [506 Relative Ranks](./506_relative_ranks.py), the index mapping is very confusing, taking a lot of time to wrap my head around. 
+For the original array `score`, we have the score and its corresponding index. 
