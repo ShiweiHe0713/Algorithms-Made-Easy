@@ -41,7 +41,7 @@ class Solution:
                 return True
             
             for word in wordDict:
-                # if word match and if the last word also matches 
+                # if word match and if the last word also matches
                 if i + len(word) <= n and s[i: i + len(word)] == word and dp(i + len(word)):
                         return True
                     

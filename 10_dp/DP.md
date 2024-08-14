@@ -47,6 +47,14 @@ multipliers = [<u>3,-5,2</u>,-9]
 
 **Like underscored range, i == 2, left = 1, dp(2, 1) = (-5) * (-9) + dp(3, 2).**
 
+[139 Word Break](./139_word_break.py)
+|    |    |    |    |    |    |    |    |    |    |
+|----|----|----|----|----|----|----|----|----|----|
+| i  |  0 |  1 |  2 |  3 |  4 |  5 |  6 |  7 |  8 |
+| s  | **l** |  e |  e |  t | **c** |  o |  d |  e | base |
+| dp | **True** | False | False | False | **True** | False | False | False | **True** |
+
+**The current dp(i) or dp[i] only is true iff the current word matches and the previous word matches(which depends on its previous word recursively.)**
 
 ### Some questions to ask
 
