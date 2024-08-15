@@ -17,3 +17,5 @@
         Leetcode 1209. Remove All Adjacent Duplicates in String II
         Leetcode 1249. Minimum Remove to Make Valid Parentheses
         Leetcode 735. Asteroid Collision
+
+关于括号类的，第一个if是check是否是左括号，是则push; 第二个是elif not stack，即不为左括号且栈为空的情况，return false或者其他如记录不合法当前不合法右括号的index；第三个else是合法右括号，则pop from the stack.
