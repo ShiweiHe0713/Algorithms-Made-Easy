@@ -21,9 +21,8 @@ class Solution:
         # 1. build the graph
         graph = defaultdict(dict)
 
-        for i in range(len(values)):
+        for i, val in values:
             dividend, divisor = equations[i]
-            val = values[i]
             graph[dividend][divisor] = val
             graph[divisor][dividend] = 1 / val
 

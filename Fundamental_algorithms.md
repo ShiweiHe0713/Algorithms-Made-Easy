@@ -627,7 +627,6 @@ A priority queue is an abstract concept that specifies behavior (an ADT) rather 
 5. **"Two pointers"** algorithm in quick sort.
    - Quicksort also implemented **"Two pointers"** algorithm, where i is the slow pointer, and j is the fast pointer. `i` only moves if `arr[j]` is greater than `arr[pivot]`, and increments after swapping.
 
-
 # Reference 🗞
 1. [Visualgo](https://visualgo.net/en/sorting)
 2. [Sort visualizer](https://sortvisualizer.com/)

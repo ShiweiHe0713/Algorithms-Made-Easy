@@ -23,7 +23,7 @@ class Solution:
                     stack.append(int(stack.pop() / num))
                 pre_sign = s[i]
                 num = 0
-        print(stack)
+
         return sum(stack)
 
 a = "3+2*2"

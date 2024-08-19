@@ -42,3 +42,7 @@ def quick_sort_determ(arr, low, high):
         quick_sort_ran(arr, low, pivot - 1)
         quick_sort_ran(arr, pivot + 1, high)
 
+
+arr = [4,123,41234,125,1234]
+quick_sort_ran(arr, 0, len(arr)-1)
+print(arr)
