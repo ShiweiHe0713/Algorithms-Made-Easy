@@ -39,9 +39,9 @@ class Solution:
 
             while queue:
                 # get the new indices
-                i, j = queue.popleft()
+                r, c = queue.popleft()
                 for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-                    nx, ny = i + x, j + y
+                    nx, ny = r + x, c + y
 
                     if nx < 0 or nx >= m or ny < 0 or ny >= n:
                         closed = False
