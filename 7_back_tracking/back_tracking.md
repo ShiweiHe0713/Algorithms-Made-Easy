@@ -51,3 +51,4 @@ for i in range(10):
     dfs(cur_arr)
     cur_arr.pop()
 ````
+The `cur_arr[-k:]` means the last k elements in the array.
