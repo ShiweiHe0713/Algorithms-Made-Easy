@@ -14,7 +14,8 @@ Tail: Most recently used item (updated or added most recently).
 **Some improvements from my approach**
 1. The value in hashmap is a ListNode, not value integer
 2. We add and remove by passing ListNode not integer
-3. Insert at tail and remove at the head
+3. **Insert at tail and remove at the head(esp remember to insert at the tail not head!!)**
+4. Use `del self.dict[node.key]` to remove from hashmap after removing one element from the linked list.
 
 ## 题目
 链表类（Linked List）：
