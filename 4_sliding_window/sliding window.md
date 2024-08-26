@@ -1,5 +1,7 @@
 # Sliding Window
 
+In [1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](./1438_longest_continuous_subarray_with_absolute_diff_less_than_or_equal_to_limit.py), it is keep expanding the right pointer, using both max and min heap/queue to keep track of the cur_max and cur_min. If the cur_max - cur_min exceed the limit, we will going to move the left pointer and pop elements from min/max heap until the limit is satisfied again. We can retract right pointer or let left directly jump to right + 1 when encounter a invalid subarray, since that way we could miss potential valid subarrays.
+
 [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
 ```python
 class Solution:
