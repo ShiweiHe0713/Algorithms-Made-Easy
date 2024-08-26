@@ -1,6 +1,6 @@
 from collections import deque
 from typing import List
-
+import heapq
 class Solution:
     def longestSubarray(self, nums: List[int], limit: int) -> int:
         max_queue = deque()
@@ -33,3 +33,24 @@ class Solution:
             max_length = max(max_length, r - l + 1)
 
         return max_length
+
+    def longestSubarray_heap(self, nums: List[int], limit: int) -> int:
+        max_heap = []
+        min_heap = []
+        l = 0
+        max_size = 0
+
+        for r, num in enumerate(nums):
+            heapq.heappush(max_heap, (-num, r))
+            heapq.heappush(min_heap, (num, r))
+
+            while -max_heap[0][0] - min_heap[0][0] > limit:
+                l = min(max_heap[0][1], min_heap[0][1]) + 1
+                while max_heap[0][1] < l:
+                    heapq.heappop(max_heap)
+                while min_heap[0][1] < l:
+                    heapq.heappop(min_heap)
+                
+            max_size = max(max_size, r - l + 1)
+        
+        return max_size
