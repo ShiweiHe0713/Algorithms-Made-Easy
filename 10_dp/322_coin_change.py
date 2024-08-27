@@ -32,4 +32,24 @@ class Solution:
         return dp[-1] if dp[-1] != float('inf') else -1
     
     def coinChange_bf(self, coins: List[int], amount: int) -> int:
-        pass
+
+        def dfs(left_amount: int, coin_used: int) -> int:
+            if left_amount < 0:
+                return float('inf')
+            if left_amount == 0:
+                return coin_used
+            
+            min_change = float('inf')
+            for coin in coins:
+                min_change = min(min_change, dfs(left_amount - coin, coin_used + 1))
+            return min_change
+
+        min_change = dfs(amount, 0)
+
+        return min_change if min_change != float('inf') else -1
+    
+s = Solution()
+coins = [1,2,5,4,13]
+print(s.coinChange_memo(coins, 20))
+print(s.coinChange_tab(coins, 20))
+print(s.coinChange_bf(coins, 20))
