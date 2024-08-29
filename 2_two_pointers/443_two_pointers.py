@@ -2,24 +2,18 @@ from typing import List
 
 class Solution:
     def compress(self, chars: List[str]) -> int:
-        s = ""
-        n = len(chars)
         i = 0
-        while i < n:
-            s += chars[i]
+        while i < len(chars):
             j = i
-            while i + 1 < n and chars[i+1] == chars[i]:
+            while i + 1 < len(chars) and chars[i+1] == chars[i]:
                 i += 1
-            count = i - j + 1
             i += 1
-            
-            if count != 1:
-                s += str(count)
+            count = i - j
 
-        while chars:
-            chars.pop()
-        
-        for c in s:
-            chars.append(c)
+            if count != 1:
+                # we can replace a subarray with an array!???
+                chars[j+1:i] = list(str(count))
+                # decremen i to next differnt char
+                i -= (i-j-1) - len(str(count))
 
         return len(chars)
