@@ -3,9 +3,6 @@ from typing import List
 
 class Solution:
     def maximumSafenessFactor(self, grid: List[List[int]]) -> int:
-        # The safeness factor of a path is defined as the minimum MD from any cell in the path to any thief in the grid. 路径中，小偷到最近的cell的曼哈顿距离叫Path's Safeness Factor 
-        # 要求返回所有到最右下格子的路径的最大safeness factor, 即找到里小偷最远的路径
-
         # gather all thieves for bfs
         thieves = deque()
         m, n = len(grid), len(grid[0])
