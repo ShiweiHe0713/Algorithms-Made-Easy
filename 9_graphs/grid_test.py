@@ -25,6 +25,5 @@ grid = [
     [0,1,1,0,0,0]
 ]
 
-g = Grid()
-g.dfs(grid, 0, 0)
-print(g.count)
+
+
