@@ -1,45 +1,43 @@
-from typing import List, Set
+from typing import List, Set, Tuple
 
 class Solution:
     def numDistinctIslands(self, grid: List[List[int]]) -> int:
-        def transform_island(island: List[List[int]]) -> List[List[int]]:
-            x, y = island[0]
+
+        def transform_island(island: Set[Tuple[int, int]]) -> Set[Tuple[int, int]]:
+            new_set = set()
 
             for co_ord in island:
-                co_ord[0] -= x
-                co_ord[1] -= y
+                new_set.add((co_ord[0] - x, co_ord[1] - y))
                     
-            return str(sorted(island))
+            return new_set
 
-        def dfs(i: int, j: int, cur_island: List[int]) -> List[List[int]]:
+        def dfs(i: int, j: int, cur_island: Set[Tuple[int, int]]) -> Set[Tuple[int, int]]:
             if 0 <= i < m and 0 <= j < n and (i, j) not in visited and grid[i][j] == 1:
-                cur_island.append([i, j])
+                cur_island.add((i, j))
                 visited.add((i, j))
 
                 for x, y in [[-1, 0], [1, 0], [0, -1], [0, 1]]:
                     nx, ny = i + x, j + y
                     dfs(nx, ny, cur_island)
 
-                return cur_island[:]
+                return cur_island
         
-        islands = set()
         visited = set()
+        islands: Set[Tuple[int, int]] = set()
         m, n = len(grid), len(grid[0])
-        islands = []
 
         for i in range(m):
             for j in range(n):
                 if grid[i][j] == 1 and (i, j) not in visited:
-                    island = dfs(i, j, [])
-                    islands.append(island)
+                    new_set = set()
+                    island = dfs(i, j, new_set)
+                    if island:
+                        x, y = i, j
+                        islands.add(frozenset(transform_island(island)))
 
-        result = set()
-        # count the number of distinct islands
-        for island in islands:
-            result.add(transform_island(island))
-        
-        return len(result)
-
+        return len(islands)
+    
+    
 s = Solution()
 grid = [[1,1,0,0,0],[1,1,0,0,0],[0,0,0,1,1],[0,0,0,1,1]]
 # grid = [[1,1,0,1,1],[1,0,0,0,0],[0,0,0,0,1],[1,1,0,1,1]]
