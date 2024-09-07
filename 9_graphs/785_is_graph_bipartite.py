@@ -2,6 +2,37 @@ from typing import List
 from collections import deque
 
 class Solution:
+
+    def isBipartite_color(self, graph: List[List[int]]) -> bool:
+        n = len(graph)
+        if n == 1:
+            return True
+        
+        color = {}
+        
+        # for loop to include multiple connected components
+        for i in range(n):
+            if i not in color:
+                queue = deque([i])
+                color[i] = 1
+
+                while queue:
+                    cur = queue.popleft()
+                    for i in range(len(graph[cur])):
+                        ele = graph[cur][i]
+                        if ele in color and color[ele] == color[cur]:
+                            return False
+                        
+                        if ele not in color:
+                            if color[cur] == 1:
+                                color[ele] = 0
+                            else:
+                                color[ele] = 1
+                            queue.append(ele)
+
+        return True
+
+
     def isBipartite(self, graph: List[List[int]]) -> bool:
         n = len(graph)
         if n == 1:
@@ -17,7 +48,7 @@ class Solution:
             if i not in visited:
                 queue.append(i)
                 set_a.add(i)
-                
+
                 while queue:
                     cur = queue.popleft()
                     visited.add(cur)
@@ -31,3 +62,4 @@ class Solution:
                             queue.append(ele)
         
         return not (set_a & set_b)
+    
