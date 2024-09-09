@@ -21,3 +21,19 @@ class Solution:
             arr[idx] = num
         
         nums[:] = arr
+
+    def rotate_reverse(self, nums: List[int], k: int) -> None:
+        def reverse(nums: List[int], l: int, r: int) -> None:
+            """r pointer inclusive"""
+            if not nums or l == r:
+                return
+
+            while l <= r:
+                nums[l], nums[r] = nums[r], nums[l]
+                l += 1
+                r -= 1
+        k %= len(nums)
+        reverse(nums, 0, len(nums)-1)
+        reverse(nums, 0, k-1)
+        reverse(nums, k, len(nums)-1)
+        
