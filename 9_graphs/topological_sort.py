@@ -12,10 +12,9 @@ def topological_sort(graph: Dict[int, List[int]]) -> List[int]:
         visited.add(cur_node)
 
         for neighbor in graph[cur_node]:
-            if cur_node not in visited:
-                dfs(neighbor, stack, visisted)
+            if neighbor not in visited:
+                dfs(neighbor, stack, visited)
 
-        visited.remove(cur_node)
         stack.append(cur_node)
 
     stack = []
@@ -26,7 +25,7 @@ def topological_sort(graph: Dict[int, List[int]]) -> List[int]:
         if node not in visited:
             dfs(node, stack, visited)
 
-    return stack
+    return stack[::-1]
 
 graph = {
     0: [1, 2],    # Edges from node 0
