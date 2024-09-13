@@ -1,5 +1,48 @@
 # Dynammic Programming
 
+##  Category
+
+### Fibonacci
+
+- Climbing Stairs
+- House Robber
+- Fibonacci Number
+- Maximum Alternation
+
+
+
+### 0-1 Knapsack
+
+- Partition Equal Subset Sum
+- Target Sum
+
+
+
+### Unbounded Knapsack
+
+- Coin Change
+- Coin Change II
+- Minimum Cost For tickets
+
+
+
+### Longest Common Subsequence
+
+- Longest Common Subsequence
+- Longest Increaseing Subsequence
+- Edit Distance
+- Distinct Subsequence
+
+
+
+### Palindrome
+
+- Longest Palindromic Substring
+- Palindromic Substrings
+- Longest Palindromic Subsequence
+
+
+
 ## DP问题的一些特征
 1. Can be divided into subproblems
 2. Have optimal substructures
