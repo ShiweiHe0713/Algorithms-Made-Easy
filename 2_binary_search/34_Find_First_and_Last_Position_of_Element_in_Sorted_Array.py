@@ -30,5 +30,3 @@ class Solution:
             result += [l, l]
         
         return result if result else [-1, -1]
-            
-            
