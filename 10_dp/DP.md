@@ -1,47 +1,15 @@
 # Dynammic Programming
 
-##  Category
+**Table of content**
+- [Dynammic Programming](#dynammic-programming)
+  - [错误总结](#错误总结)
+  - [DP问题的一些特征](#dp问题的一些特征)
+    - [Some questions to ask](#some-questions-to-ask)
+  - [Typical Problems](#typical-problems)
 
-### Fibonacci
-
-- Climbing Stairs
-- House Robber
-- Fibonacci Number
-- Maximum Alternation
-
-
-
-### 0-1 Knapsack
-
-- Partition Equal Subset Sum
-- Target Sum
-
-
-
-### Unbounded Knapsack
-
-- Coin Change
-- Coin Change II
-- Minimum Cost For tickets
-
-
-
-### Longest Common Subsequence
-
-- Longest Common Subsequence
-- Longest Increaseing Subsequence
-- Edit Distance
-- Distinct Subsequence
-
-
-
-### Palindrome
-
-- Longest Palindromic Substring
-- Palindromic Substrings
-- Longest Palindromic Subsequence
-
-
+## 错误总结
+Budget equals to 0 situation
+- m row, n cols issue, in python list comprehension, n comes before m
 
 ## DP问题的一些特征
 1. Can be divided into subproblems
@@ -103,3 +71,25 @@ multipliers = [<u>3,-5,2</u>,-9]
 
 1. **How should I size the DP array?**
 2. **How should I initialize the DP array?**
+
+## Typical Problems
+
+| Category                      | Problems                               | LeetCode Link                                               |
+|-------------------------------|----------------------------------------|-------------------------------------------------------------|
+| **Fibonacci**                  | Climbing Stairs                        | [LeetCode](https://leetcode.com/problems/climbing-stairs)    |
+|                               | House Robber                           | [LeetCode](https://leetcode.com/problems/house-robber)       |
+|                               | Fibonacci Number                       | [LeetCode](https://leetcode.com/problems/fibonacci-number)   |
+|                               | Maximum Alternation                    | N/A                                                         |
+| **0-1 Knapsack**               | Partition Equal Subset Sum             | [LeetCode](https://leetcode.com/problems/partition-equal-subset-sum) |
+|                               | Target Sum                             | [LeetCode](https://leetcode.com/problems/target-sum)         |
+| **Unbounded Knapsack**         | Coin Change                            | [LeetCode](https://leetcode.com/problems/coin-change)        |
+|                               | Coin Change II                         | [LeetCode](https://leetcode.com/problems/coin-change-2)      |
+|                               | Minimum Cost For Tickets               | [LeetCode](https://leetcode.com/problems/minimum-cost-for-tickets) |
+| **Longest Common Subsequence** | Longest Common Subsequence             | [LeetCode](https://leetcode.com/problems/longest-common-subsequence) |
+|                               | Longest Increasing Subsequence         | [LeetCode](https://leetcode.com/problems/longest-increasing-subsequence) |
+|                               | Edit Distance                          | [LeetCode](https://leetcode.com/problems/edit-distance)      |
+|                               | Distinct Subsequence                   | [LeetCode](https://leetcode.com/problems/distinct-subsequences) |
+| **Palindrome**                 | Longest Palindromic Substring          | [LeetCode](https://leetcode.com/problems/longest-palindromic-substring) |
+|                               | Palindromic Substrings                 | [LeetCode](https://leetcode.com/problems/palindromic-substrings) |
+|                               | Longest Palindromic Subsequence        | [LeetCode](https://leetcode.com/problems/longest-palindromic-subsequence) |
+
