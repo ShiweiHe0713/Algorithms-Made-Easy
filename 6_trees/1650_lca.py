@@ -10,12 +10,21 @@ class Node:
 
 def lowestCommonAncestor(self, p: 'Node', q: 'Node') -> 'Node':
     a, b = p, q
-    
+
     # Traverse upwards until both pointers meet
     while a != b:
-        a = a.parent if a else q
-        b = b.parent if b else p
-    
+        # a = a.parent if a else q
+        # b = b.parent if b else p
+        if a:
+            a = a.parent
+        else:
+            a = q
+
+        if b:
+            b = b.parent
+        else:
+            b = p
+
     return a
 
 # Example usage

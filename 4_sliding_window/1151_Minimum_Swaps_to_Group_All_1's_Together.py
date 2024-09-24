@@ -1,5 +1,6 @@
 class Solution:
     def minSwaps(self, data) -> int:
+        # O(n^2), O(n)
         k = sum(data)
         l, r = 0, k
         cur_sum = sum(data[:k])
