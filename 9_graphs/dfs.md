@@ -1,4 +1,8 @@
 # DFS
+
+- Its principle of recursion is using stack. 
+- It suits find the longest path in a graph.
+
 In [490 The Maze](./490_the_maze.py), we have to pay attention to using a while to reach end of four directions. And revert one step after the while loop finishes to stay in the valid index range. 
 
 每个题型做一两题
