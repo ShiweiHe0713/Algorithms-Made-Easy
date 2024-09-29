@@ -4,13 +4,7 @@
 - It suits find the shortest path in an unweighted grah.
   - Picture BFS traverse the graph by waves, so it's outward propagation natural that the shortest path will be found first.
 
-**Table of Contents**
-- [BFS](#bfs)
-  - [Problems](#problems)
-    - [Basics](#basics)
-      - [1254 Number of Islands](#1254-number-of-islands)
-      - [BFS Based on Graph](#bfs-based-on-graph)
-      - [Topological sort](#topological-sort)
+
 
 
 ## Problems

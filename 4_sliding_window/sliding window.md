@@ -1,8 +1,15 @@
 # Sliding Window
 
+**[1838. Frequency of the Most Frequent Element](https://leetcode.com/problems/frequency-of-the-most-frequent-element/)**
+
+**滑动窗口适合在sort之后的数组上进行滑动，且不适用于有负数的数组。** 这个给予为什么可以用滑动窗口来做的暗示就是最大的frequency。这个frequency给我的第一反应是hashmap里的count，但是frequency还可以是滑动窗口的长度，而窗口内只存符合条件的元素。**这题比较关键的点是如何找到一个衡量标准去决定左指针应该在哪里停，答案中给的是 target * len(window) - sum(window) 与 k对比来check。**
+
+
+
 In [1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](./1438_longest_continuous_subarray_with_absolute_diff_less_than_or_equal_to_limit.py), it is keep expanding the right pointer, using both max and min heap/queue to keep track of the cur_max and cur_min. If the cur_max - cur_min exceed the limit, we will going to move the left pointer and pop elements from min/max heap until the limit is satisfied again. We can retract right pointer or let left directly jump to right + 1 when encounter a invalid subarray, since that way we could miss potential valid subarrays.
 
 [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
