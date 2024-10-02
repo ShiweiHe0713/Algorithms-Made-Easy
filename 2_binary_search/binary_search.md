@@ -1,10 +1,12 @@
 # Binary Search
 
-## Binary search problem generalized
+[Binary Search problem types spreadsheet](https://docs.google.com/spreadsheets/d/1ueesUx645Ws6Pd7NmSvNMoRsoryjsxK2QIBH9MVeHSY/edit?gid=0#gid=0)
+
+## Patterns
+
+#### Problem generalized
 
 Binary search problems are always trying to find a value in some condition. 
-
-**For example:**
 
 - Find the **[ith largest/smallest]** element in **[a container]** that **[satisfies some condition]** .
 
@@ -14,7 +16,15 @@ Binary search problems are always trying to find a value in some condition.
 
 - Find the **[smallest]** distance pair **[such that it is the Kth smallest distance pair ]**
 - Find the **[Kth smallest]** number in a **[mult. matrix]**.  ([such that it's the Kth smallest])
-  
+- Find **[*the minimum integer*]** `k`  **[*such that Koko can eat all the bananas within* `h` *hours*]**.
+
+
+
+#### Some distinct pattern
+
+Split the array into subarrays, could be into different hours, split into different sections, into different days, etc. We'd have to test whether our mid value will make every section satisfy the condition. 
+
+
 
 ## Template
 
@@ -46,6 +56,9 @@ def binary_search():
 
 
 ## Problems
+
+- [875. Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)
+
 - **[1011. Capacity To Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days)** 
 - [719. Find K-th Smallest Pair Distance](https://leetcode.com/problems/find-k-th-smallest-pair-distance)  
 - [1283. Find the Smallest Divisor Given a Threshold](https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold)  
@@ -53,6 +66,14 @@ def binary_search():
 - [410. Split Array Largest Sum](https://leetcode.com/problems/split-array-largest-sum)  
 - [1482. Minimum Number of Days to Make m Bouquets](https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets)  
 - **[153. Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array)**
+
+
+
+#### [33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+
+**search left, include == mid_val to "go left" always, as we have to do 'r = mid'; search right, don't include == mid_val to "go left" always, as we have to do 'r = mid'**
+
+
 
 
 
@@ -93,31 +114,3 @@ def days_taken(capacity: int) -> int:
 Whether we return `l` or `r` as a result depends on how to end the while loop. For example, our termination will be l == r == mid, then our algorithm will go into if or else to either increase `l` or decrease `r` for the while loop to stop. And we are going to return the one that doesn't change at the last step.
 
 In [162 Find peak element](./162_find_peak_element.py), we search to the right if nums[mid+1] > nums[mid], search the left if nums[mid-1] > nums[mid]. The reason why we do this is that binary search is about how to narrow down the searching scope, either to left or right. So the most important thing we need to worry about is whether go to left or right. Here if nums[mid-1] > nums[mid] means nums[mid] can't be the peak since it's smaller than its eneighbor. And since nums[mid-1] > nums[mid], nums[mid-1] could potentially be the peak or the element on its left side. Even though we can't exclude there're peaks on the right side of mid in this case, it is certian that there will be peal in the left side(Even if it's monotonic, out of boundary will be negative infinite.) So we have to write it in the certain way which is when nums[mid-1] > nums[mid], we go left by `r = mid - 1`. The same for the right side.
-
-
-
-### Explicit Binary Search
-- Leetcode 34. Find First and Last Position of Element in Sorted Array
-
-- Leetcode 33. Search in Rotated Sorted Array
-
-- Leetcode 1095. Find in Mountain Array
-
-- [x] Leetcode 162. Find Peak Element
-
-- Leetcode 278. First Bad Version
-
-- Leetcode 74. Search a 2D Matrix
-
-- Leetcode 240. Search a 2D Matrix II
-
-  
-### Implicit Binary Search
-- Leetcode 69. Sqrt(x)
-- Leetcode 540. Single Element in a Sorted Array
-- Leetcode 644. Maximum Average Subarray II
-- Leetcode 528. Random Pick with Weight
-- Leetcode 1300. Sum of Mutated Array Closest to Target
-- Leetcode 1060. Missing Element in Sorted Array
-- Leetcode 1062. Longest Repeating Substring
-- Leetcode 1891. Cutting Ribbons

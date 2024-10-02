@@ -34,3 +34,13 @@ Tail: Most recently used item (updated or added most recently).
 - Leetcode 92. Reverse Linked List II
 - Leetcode 328. Odd Even Linked List
 
+
+
+#### [23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
+
+1. We have to use a dummy to store the head(cur), then move the cur all the way to the end.
+2. Len == 1 is a edge case we have to handle manually
+3. After finish traversing one array/list, we have to append the unfinished portion to the cur
+
+
+
