@@ -7,8 +7,26 @@
       - [To find permutations/combinations](#to-find-permutationscombinations)
 
 
+
 ## Probelms
-### Basics
+
+#### [46. Permutations](https://leetcode.com/problems/permutations/)
+
+#### [7. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
+
+In this problem, the **runtime** we bill `the number of leaf nodes` x `the length of each path`, namely `O(4^n * n)`. Distinguish between the depth of the leaf node and the path length. And the reason why it's `4^n` but not `2^n` is that every node at worse can have 4 children(choices), and after we reach the valid leaf node, we have to append that path to our result array.
+
+
+
+#### [39. Combination Sum](https://leetcode.com/problems/combination-sum/)
+
+In this problem, **the time complexity if different from last one**, since we're exploring every possibility even it's invalid. Let's say `n` is the length of `candidates`, `k` is target, and `m` is the smallest element in `candidates`, so we have:
+
+- Time complexity: $O(n^{k/m})$ . Worst case, all the node in the tree is `n^(k/m + 1) - 1` based on geometric series sum.
+- Space: $O(k/m)$. When we use the smallest element to sum up to target, all of it will be added to the stack because of recursion.
+
+
+
 #### 256 Binary tree paths
 In [257 binary tree paths](/back_tracking/257_binary_tree_paths.py), 
 ```python
@@ -61,3 +79,10 @@ for i in range(start, len(candidates)):
                 arr.pop()
 ```
 In order to not have duplicates like `[2,3,2]`and `[2,2,3]`(list is not hashable so we can't use a set). So we have to figure out how to avoid going back in backtracking. We introduce a `start` variable which is the start index in the `candidates` array, and we will only consider the elements of start or after starts. For example in `[2,3,5,7]` when `start` == 1, we only consider [3,5,7] in the for loop, and the dfs inside of for loop will only use these three numbers, won't go back to get 2, since all possibility related to 2 has been considered when `start` == 0;
+
+
+
+
+
+## Runtime analysis
+
