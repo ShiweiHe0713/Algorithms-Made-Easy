@@ -16,14 +16,30 @@
 
 In this problem, the **runtime** we bill `the number of leaf nodes` x `the length of each path`, namely `O(4^n * n)`. Distinguish between the depth of the leaf node and the path length. And the reason why it's `4^n` but not `2^n` is that every node at worse can have 4 children(choices), and after we reach the valid leaf node, we have to append that path to our result array.
 
+- Time complexity: $O(4^n \times n)$
+
 
 
 #### [39. Combination Sum](https://leetcode.com/problems/combination-sum/)
 
 In this problem, **the time complexity if different from last one**, since we're exploring every possibility even it's invalid. Let's say `n` is the length of `candidates`, `k` is target, and `m` is the smallest element in `candidates`, so we have:
 
-- Time complexity: $O(n^{k/m})$ . Worst case, all the node in the tree is `n^(k/m + 1) - 1` based on geometric series sum.
+- Time complexity: $O(n^{k/m})$ . Worst case, all the node in the tree is $n^{k/m + 1} - 1$ based on geometric series sum.
 - Space: $O(k/m)$. When we use the smallest element to sum up to target, all of it will be added to the stack because of recursion.
+
+
+
+#### [77. Combinations](https://leetcode.com/problems/combinations/)
+
+- **Time complexity** for this problem is $O(\frac{n!}{(k-1)!(n-k)!})$
+- **Space complexity** is $O(k)$, the numbers in stack is up bounded by the k.
+
+
+
+#### [78. Subsets](https://leetcode.com/problems/subsets/)
+
+- **Time complexity** for this problem is $O(n \times 2^n)$
+- **Space complexity** is $O(n)$
 
 
 
