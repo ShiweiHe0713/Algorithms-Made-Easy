@@ -43,7 +43,28 @@ In this problem, **the time complexity if different from last one**, since we're
 
 
 
+
+
+#### [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
+
+- **Time complexity** for this problem is $O(\frac{4^n}{\sqrt{n}})$
+- **Space complexity** is $O(n)$
+
+
+
+#### [40. Combination Sum II](https://leetcode.com/problems/combination-sum-ii/)
+
+Purpose of `if i > start and candidates[i] == candidates[i - 1]: continue`:
+
+This condition ensures that the algorithm **skips over duplicate values** but does so only **when iterating at the same level of recursion**. 
+
+- **Time complexity** for this problem is 
+- **Space complexity** is 
+
+
+
 #### 256 Binary tree paths
+
 In [257 binary tree paths](/back_tracking/257_binary_tree_paths.py), 
 ```python
 class Solution:
@@ -101,4 +122,3 @@ In order to not have duplicates like `[2,3,2]`and `[2,2,3]`(list is not hashable
 
 
 ## Runtime analysis
-
