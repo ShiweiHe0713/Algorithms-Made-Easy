@@ -8,6 +8,8 @@
 
 **Linked list problems are frequently related to two pointers, stacks/recursion**. Like we can use stack or recursion to reverse a linked list, use two pointers to find the mid point of a linked list or detect cycle in the list.
 
+**And Linked list is very similar to Tree and Graphs.** It's even treated as a tree in 430 Flatten a Multilevel Doubly Linked List, and  [138. Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/). 
+
 
 
 ## Problems
@@ -41,6 +43,14 @@ def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
 1. We have to use a dummy to store the head(cur), then move the cur all the way to the end.
 2. Len == 1 is a edge case we have to handle manually
 3. After finish traversing one array/list, we have to append the unfinished portion to the cur
+
+
+
+#### [86. Partition List](https://leetcode.com/problems/partition-list/)
+
+- When creating a dummy node, we can use Class initialization instead of None to avoid later access None case.
+
+- When processing the LL, always make the tail of any sub LL point to Null to avoid cycle when merged with other lists.
 
 
 
