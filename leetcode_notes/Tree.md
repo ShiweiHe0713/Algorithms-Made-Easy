@@ -29,7 +29,15 @@
 
 #### [230. Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
 
-In a BST or tree, 
+**In a BST or tree, the number of nodes in the tree is `n` , the `k` is the smallest number index, `h` is the height of the tree.**
+
+- O(h) can be O(n) or O(logn), depend on whether the BST is balanced or not. So O(h) always describe the height of the tree even when it's very skewed, so using O(h) to describe the worst complexity is correct.
+
+
+
+#### [437. Path Sum III](https://leetcode.com/problems/path-sum-iii/)
+
+Prefix sum + pre-order traversal
 
 
 
