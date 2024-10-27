@@ -16,7 +16,7 @@ Typical questions like **all path** and **combinations**, backtracking is needed
 - **The graph has cycles**, and revisiting nodes could cause infinite loops.
 - **Each node can only be visited once per path**, or there's a restriction that disallows revisiting nodes.
 
-#### 
+
 
 When using dfs to traverse a graph, we have to keep track of the visited node, so we don't fall into endless loop.
 
