@@ -10,6 +10,16 @@
 
 ## Probelms
 
+### Time complexity 
+
+| Problem     | Time complexity | Why  |
+| ----------- | --------------- | ---- |
+| Permutation | $O(n•n!)$       |      |
+|             |                 |      |
+|             |                 |      |
+
+
+
 #### [46. Permutations](https://leetcode.com/problems/permutations/)
 
 #### [7. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)

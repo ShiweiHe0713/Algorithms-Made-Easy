@@ -5,7 +5,7 @@ from typing import List, Dict
 # How to use topological sort to detect edges?
 
 def topological_sort(graph: Dict[int, List[int]]) -> List[int]:
-    def dfs(cur_node: int, stack: List[List[int]], visisted):
+    def dfs(cur_node: int, stack: List[int], visited):
         """we will append to stack in each dfs call"""
         if cur_node in visited:
             return
@@ -28,12 +28,22 @@ def topological_sort(graph: Dict[int, List[int]]) -> List[int]:
     return stack[::-1]
 
 graph = {
-    0: [1, 2],    # Edges from node 0
-    1: [3],       # Edges from node 1
-    2: [3],       # Edges from node 2
-    3: [4],       # Edges from node 3
-    4: []         # Node 4 has no outgoing edges
+    6: [],
+    2: [4, 5],
+    1: [2, 3],
+    3: [6, 7],
+    4: [],
+    5: [],
+    7: []
 }
 
 sorted_graph = topological_sort(graph)
 print(sorted_graph)
+
+# graph = {
+#     0: [1, 2],    # Edges from node 0
+#     1: [3],       # Edges from node 1
+#     2: [3],       # Edges from node 2
+#     3: [4],       # Edges from node 3
+#     4: []         # Node 4 has no outgoing edges
+# }

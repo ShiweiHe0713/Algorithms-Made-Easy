@@ -130,7 +130,7 @@ So `d` will be how many rounds of sorting we need to perform. In every round, we
 ### BST 
 ### 2-3 Tree
 ---
-<img src="0_assets/final_mindmap.png" style="width:500px, align:center"/>
+<img src="../0_assets/final_mindmap.png" style="width:500px, align:center"/>
 
 ## 4 Dynamic Programming 
 Dynamic programming is wonderful way of solving recurrence in a faster way in trade-off of additional space complexity either by using tabulation or memoization. 
@@ -213,7 +213,7 @@ GSAS means, at each step, a greedy algorithm makes the most optimal local choice
 **Progress measure**
 Write down a "progress measure" and show that greedy is better than any other algorithm, at all point of the algo.
 **Useful tip: Clearly write down progress measure first!**
- 
+
 **Theorem**
 - Let G be the greedy solution
 - Let Z be any other solution. 
@@ -272,7 +272,7 @@ Note: Often we write undirected edges also as `(c, h)` for simplicity.
 
 ### 6.2 Graph Representations
 *The following discussion in about directed graphs and trees.*
-![graph representations](./0_assets/graph_repre.png)
+![graph representations](../0_assets/graph_repre.png)
 *Image from [Shichao's Notes](https://notes.shichao.io/clrs/)*
 
 **1. Adjacency list**
@@ -329,7 +329,7 @@ Output: For each vertex v in V, the discovery time `v.d` and finish time `v.f`, 
 **Question: How to check if a vertex is visited?**
 **Method II: Coloring**
 - the vertices: White, Gray, Black.
-<img alt="DFS coloring" src="./0_assets/dfs.png" width=500>
+<img alt="DFS coloring" src="../0_assets/dfs.png" width=500>
 <details>
 <summary>Pseudo code for coloring</summary>
 <pre><code>
@@ -370,13 +370,13 @@ Proof: If v is indeed a descendent of u, at time of u.start, each recursive call
 
 #### 4 kinds of edges
 1. Tree edges
-  Points to white nodes, to child
+    Points to white nodes, to child
 2. **Back edges**
-  Points to grey nodes, to ancestor
+    Points to grey nodes, to ancestor
 3. Forward edges
-  Points to black nodes, to descendent
+    Points to black nodes, to descendent
 4. cross edges
-  Points to black nodes, to descendent of its sibling's subtree
+    Points to black nodes, to descendent of its sibling's subtree
 
 **Theorem: Cycle and back edges**
 **G has no cycles(acyclic) <=> DFS(G) has no back edges**
@@ -428,6 +428,7 @@ How to prove the correctness and fastness of Kruskal's algorithm?
 - `Union by rank`: merge the smaller tree into the larger tree.
 - `Path compression`: make the path from x to the root shorter.
   
+
 **Runtime analysis:** O(mlogm + mlogn), where m is the number of edges, n is the number of vertices.
 
 ### 6.7 Prim's Algorithm
@@ -576,7 +577,7 @@ $$F_{u \rightarrow v}^{k} = min_{x \in u \rightarrow v}(F_{u \rightarrow v}^{k-1
         T[i][j] = w(i, j)
       else:
         T[i][j] = ∞
-  
+
   for k from 1 to n:
     for i from 1 to n:
       for j from 1 to n:
@@ -591,7 +592,7 @@ Ideas in short: Shift all the edges to non-negative, then run n times Dijkstra's
 **Johnson's Algo**
 1. Use 1 run of Bellman to get "shifts". $O(mn)$
 2. "shift" all the edges to non-negative. $O(m)$
-  (shortest path stays the same)
+    (shortest path stays the same)
 3. Run n times Dijkstra's. $O(mnlogn)$
 **Overall runtime:** $O(mnlogn)$
 

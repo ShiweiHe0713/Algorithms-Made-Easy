@@ -1,15 +1,36 @@
 # DFS
 
-- Its principle of recursion is using stack. 
-- It suits find the longest path in a graph.
+Use DFS to traverse a graph/tree has a time complexity $O(E+V)$ because we will visit every node exactly once(add them to visited set), and for every node we will explore all its neighbor(which is E in directed graph and 2|E| in a undirected graph.)
+```python
+# Template of dfs
+def dfs(node):
+	if node in visited:
+		return
+	# O(V)
+	visited.add(node)
+	result.append(node)
+
+	# O(E)
+	for neighbor in adj_list[node]:
+		dfs(node)
+	
+	return 
+```
+
 
 In [490 The Maze](./490_the_maze.py), we have to pay attention to using a while to reach end of four directions. And revert one step after the while loop finishes to stay in the valid index range. 
 
 每个题型做一两题
 
+<details>
+<summary> DFS Problems Summary </summary>
 深度优先搜索（DFS）：面试中最常考的
     基础知识：
-        常见的DFS用来解决什么问题？(1) 图中（有向无向皆可）的符合某种特征（比如最长）的路径以及长度（2）排列组合（3） 遍历一个图（或者树）（4）找出图或者树中符合题目要求的全部方案DFS基本模板（需要记录路径，不需要返回值 and 不需要记录路径，但需要记录某些特征的返回值）除了遍历之外多数情况下时间复杂度是指数级别，一般是O(方案数×找到每个方案的时间复杂度)递归题目都可以用非递归迭代的方法写，但一般实现起来非常麻烦
+        常见的DFS用来解决什么问题？
+        (1) 图中（有向无向皆可）的符合某种特征（比如最长）的路径以及长度
+        (2）排列组合
+        (3） 遍历一个图（或者树）
+        (4）找出图或者树中符合题目要求的全部方案DFS基本模板（需要记录路径，不需要返回值 and 不需要记录路径，但需要记录某些特征的返回值）除了遍历之外多数情况下时间复杂度是指数级别，一般是O(方案数×找到每个方案的时间复杂度)递归题目都可以用非递归迭代的方法写，但一般实现起来非常麻烦
     基于树的DFS：需要记住递归写前序中序后序遍历二叉树的模板
         Leetcode 543 Diameter of Binary Tree
         Leetcode 226 Invert Binary Tree
@@ -75,3 +96,4 @@ In [490 The Maze](./490_the_maze.py), we have to pay attention to using a while 
         Leetcode 472 Concatenated Words
         Leetcode 403 Frog Jump
         Leetcode 329 Longest Increasing Path in a Matrix
+</details>

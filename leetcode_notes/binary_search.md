@@ -58,7 +58,6 @@ def binary_search():
 ## Problems
 
 - [875. Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)
-
 - **[1011. Capacity To Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days)** 
 - [719. Find K-th Smallest Pair Distance](https://leetcode.com/problems/find-k-th-smallest-pair-distance)  
 - [1283. Find the Smallest Divisor Given a Threshold](https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold)  

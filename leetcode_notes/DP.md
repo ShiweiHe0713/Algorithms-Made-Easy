@@ -1,6 +1,11 @@
 # Dynammic Programming
 
+[Leetcode DP神贴](https://leetcode.com/discuss/general-discussion/458695/Dynamic-Programming-Patterns#Decision-Making)
+
+
+
 **Table of content**
+
 - [Dynammic Programming](#dynammic-programming)
   - [错误总结](#错误总结)
   - [DP问题的一些特征](#dp问题的一些特征)
